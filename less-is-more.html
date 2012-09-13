@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="el-GR">
+<head>
+<meta name="description" content="King of hardcore tech and twisted thoughts" />
+<meta name="keywords" content="Web development, Web design, Web news, Coding, PHP, Technology" />
+<meta name="author" content="Alexander Lingris" />
+<meta name="generator" content="Kudos.gr Engine" />
+<meta charset="UTF-8" />
+<title>Webz | {less} is more</title>
+
+<link rel="stylesheet" type="text/css" href="assets/css/static.css" />
+<link href="assets/img/favicon.ico" rel="shortcut icon" type="image/ico" />
+
+</head>
+<body class="">
+<div id="header">
+	<hgroup>
+		<h1 id="logo"><a href="index.html"><img src="assets/img/logo.png" alt="logo"></a></h1>
+		<h2 id="site_desc">King of hardcore tech and twisted thoughts</h2>
+	</hgroup>
+
+</div>
+		<section id="notice">
+			<p>The King is dead! RIP 2006-2012</p>
+			<span>Ένα μεγάλο ευχαριστώ σε όλη την παρέα</span><br>
+			<span>Περισσότερα στο <a href="http://lexx.gr">lexx.gr</a></span>
+		</section>
+<div id="page">
+
+
+	<div id="wrapper">
+		<section id="main">
+			<h1>{less} is more</h1>			<section id="main">
+	<article  class="post single">
+
+		<p class="meta">08 Jul 2010 by fractalbit</p>
+		<div class="content"><h2>Προγραμματιστική λογική σε css;</h2>
+
+<p>Γιατί όχι; Πόσες φορές αλήθεια δεν ψάξατε μέσα σε ένα τεράστιο .css αρχείο για να βρείτε το χρώμα #3357FF και μετά κάνατε search and replace στον text editor για να το αντικαταστήσετε παντού; Πολλές; Ωραία, τότε συνεχίστε να διαβάζετε <!--break-->, γιατί με την less μπορούμε να έχουμε μεταβλητές, mixins (functions), operations (πράξεις) και nested rules όταν γράφουμε css. Ισχύουν όλοι οι συντακτικοί κανόνες που ξέρουμε για τα css και απλά προστίθενται μερικές ευκολίες προγραμματιστικής λογικής.</p>
+
+<h2>Μεταβλητές</h2>
+
+<p>Στο παραπάνω παράδειγμα αρκεί να έχουμε στην αρχή ενός .less αρχείου ορίσει μία μεταβλητή ως εξής:</p>
+
+<pre><code>@dark_color: #3357FF;
+</code></pre>
+
+<p>και μετά να το χρησιμοποιήσουμε όσες φορές θέλουμε π.χ.</p>
+
+<pre><code>div.important { 
+    border: 5px solid @dark_color;
+} 
+
+div.emphasis { 
+    color: @light_color;
+    background: @dark_color;
+}
+</code></pre>
+
+<h2>Mixins (functions)</h2>
+
+<p>Ορίζουμε ένα mixin ως κλάση (που όπως βλέπετε μπορεί&nbsp;να δέχεται και μεταβλητές)...
+    .rounded_corners (@radius: 5px) { 
+    -moz-border-radius: @radius; 
+    -webkit-border-radius: @radius; 
+    border-radius: @radius; 
+    }</p>
+
+<p>και μετά το χρησιμοποιούμε πολύ απλά ως rule σε κάποιο άλλο αντικείμενο.</p>
+
+<pre><code>div.emphasis { 
+color: @light_color;
+background: @dark_color;
+
+.rounded_corners(15px); 
+}
+</code></pre>
+
+<h2>Nested rules</h2>
+
+<p>Μπορούμε να γράψουμε...
+    div.emphasis {
+       color: @light_color;
+       background: @dark_color;</p>
+
+<pre><code>   a {
+       font-weight: bold;
+   }
+}
+</code></pre>
+
+<p>Αντί για...</p>
+
+<pre><code>div.emphasis { 
+color: @light_color;
+background: @dark_color; 
+} 
+
+div.emphasis a{ 
+font-weight: bold; 
+}
+</code></pre>
+
+<h2>Πείστηκα! Τί χρειάζομαι;</h2>
+
+<p>Έναν text editor για να σώνετε τα αρχεία σας σε .less και να χρησιμοποιείτε στο project σας ruby, php... ή javascript!</p>
+
+<p>Ruby: <a href="http://lesscss.org/">http://lesscss.org/</a></p>
+
+<p>PHP: <a href="http://leafo.net/lessphp/">http://leafo.net/lessphp/</a></p>
+
+<p>Javascript: <a href="http://github.com/cloudhead/less.js">http://github.com/cloudhead/less.js</a></p>
+
+<p>
+    Και ένα σύντομο tutorial για τη less.js εδώ: <a href="http://net.tutsplus.com/tutorials/html-css-techniques/quick-tip-you-need-to-check-out-less-js/">http://net.tutsplus.com/tutorials/html-css-techniques/quick-tip-you-need-to-check-out-less-js/</a></p>
+
+<p>
+    Εν ολίγοις, τα .less αρχεία, θα πρέπει τελικά να μεταφραστούν σε καθαρό css κώδικα με μία από τις παραπάνω γλώσσες, είτε &quot;on the fly&quot; είτε &quot;offline&quot; πριν ανεβάσετε τα τελικά .css αρχεία στον server σας. Για όσους ανησυχούν για το overhead που μπορεί να υπάρχει στον σέρβερ &quot;μεταφράζοντας&quot; κάθε φορά τα .less αρχεία όταν φορτώνει μία σελίδα, υπάρχουν λύσεις. Για παράδειγμα αν χρησιμοποιείτε PHP μπορείτε με <a href="files/parseLESS.rar">αυτό το scriptaki</a> να δημιουργείτε χειροκίνητα τα .css αρχεία πριν τα ανεβάσετε. Απλά βάλτε το στο φάκελο με τα .less αρχεία μαζί με το less.inc.php και καλέστε το από το localhost.</p>
+
+<p>
+    Για ό,τι άλλο χρειαστείτε, εδώ είμαστε...</p>
+</div>
+	</article>
+	
+
+
+</section>
+
+		</section>
+
+
+
+	</div><!-- end wrapper -->
+	<div id="footer">
+		<p class="copy">
+			&copy;2006 - 2012  by <a href="http://lexx.gr">lexx</a> &amp; <a href="https://twitter.com/PanosJee">PanosJee</a>
+		</p>
+
+	</div>
+</div> <!-- end page -->
+
+</body>
+</html>
+

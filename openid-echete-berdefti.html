@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="el-GR">
+<head>
+<meta name="description" content="King of hardcore tech and twisted thoughts" />
+<meta name="keywords" content="Web development, Web design, Web news, Coding, PHP, Technology" />
+<meta name="author" content="Alexander Lingris" />
+<meta name="generator" content="Kudos.gr Engine" />
+<meta charset="UTF-8" />
+<title>Webz | OpenID - Έχετε μπερδευτεί;</title>
+
+<link rel="stylesheet" type="text/css" href="assets/css/static.css" />
+<link href="assets/img/favicon.ico" rel="shortcut icon" type="image/ico" />
+
+</head>
+<body class="">
+<div id="header">
+	<hgroup>
+		<h1 id="logo"><a href="index.html"><img src="assets/img/logo.png" alt="logo"></a></h1>
+		<h2 id="site_desc">King of hardcore tech and twisted thoughts</h2>
+	</hgroup>
+
+</div>
+		<section id="notice">
+			<p>The King is dead! RIP 2006-2012</p>
+			<span>Ένα μεγάλο ευχαριστώ σε όλη την παρέα</span><br>
+			<span>Περισσότερα στο <a href="http://lexx.gr">lexx.gr</a></span>
+		</section>
+<div id="page">
+
+
+	<div id="wrapper">
+		<section id="main">
+			<h1>OpenID - Έχετε μπερδευτεί;</h1>			<section id="main">
+	<article  class="post single">
+
+		<p class="meta">17 Apr 2008 by lexx</p>
+		<div class="content"><p>Δεν θα το παίξω ειδικός. Κι εγώ είχα μπερδευτεί και βαριόμουνα να διαβάσω. Ξαφνικά όμως έφαγα μια φρίκη και αποφάσισα να ασχοληθώ. Θα εξηγήσω όσο πιο απλά μπορώ τι κατάλαβα και σε τι έχω ακόμα απορίες.</p>
+
+<p>Το <a href="http://openid.net/">OpenID</a> είναι μια ενιαία διαδικτυακή ταυτότητα. Με αυτή την ταυτότητα δεν χρειάζεται να έχει δεκάδες διαφορετικά ονόματα και κωδικούς στις σελίδες που χρησιμοποιείς. Με προυπόθεση πάντα ότι η σελίδα "συνεργάζεται" με το OpenID.</p>
+
+<p>Αν σκέφτεστε ότι κάποιος είναι πίσω από αυτό και ότι θα το εκμεταλλευθεί οικονομικά δεν σας αδικώ αλλά σας βεβαιώνει ο Brad Fitzpatrick (πατέρας του OpenID) ότι κάτι τέτοιο δεν θα γίνει:</p>
+
+<blockquote>Nobody should own this. Nobody’s planning on making any money from this. The goal is to release every part of this under the most liberal licenses possible, so there’s no money or licensing or registering required to play. It benefits the community as a whole if something like this exists, and we’re all a part of the community.</blockquote>
+
+<h2>Πως θα αποκτήσω ένα</h2>
+
+<p>Εδώ είναι που είχα μπερδευτεί μέχρι που ανακάλυψα ότι ήδη έχω ένα. Αν έχετε για παράδειγμα λογαριασμό στο wordpress.com αυτό λειτουργεί αυτόματα σαν OpenID. Δείτε και τους <a href="http://openid.net/get/">άλλους παροχείς</a> γιατί είναι πολύ πιθανό να έχετε και εσείς ένα.</p>
+
+<h2>Το Δικό μου Domain σαν OpenID</h2>
+
+<p>Αφού έπαιξα λίγο με το OpenID μου αποφάσισα ότι θέλω να είναι σε δικό μου domain ή ακόμα και σε δικό μου server. Κρίση κτητικότητας  λέγεται αυτό;</p>
+
+<p><strong>Πώς έκανα το OpenID μου από lexx.wordpress.com www.lexx.gr</strong></p>
+
+<p><strong></strong>Είναι τόσο απλό που θα ξενερώσετε αν είχατε όρεξη για ψάξιμο. Για το θέμα έχει γράψει και ο <a href="http://metablogging.gr/archives/1295">nikan </a>αν θέλετε να δείτε αναλυτικά.</p>
+
+<p>Αν έχετε για παράδειγμα ένα Wordpress στημένο σε δικό σας server μπορείτε να επεξεργαστείτε το <strong>header.php</strong> του theme σας. Στην συνέχεια προσθέστε μέσα στο <strong></strong> το παρακάτω:</p>
+
+<p><code>&lt;link rel=”openid.server” href=”http://username.wordpress.com/?openidserver=1″ /&gt;
+&lt;link rel=”openid.delegate” href=”http://username.wordpress.com/” /&gt;</code></p>
+
+<p>Τι λέει ο παραπάνω κώδικας; Δίνει την ἑξουσιοδότηση (delegation) στον χρήστη username.wordpress.com να χρησιμοποιεί το όνομα του blog σας για να κάνετε login.</p>
+
+<p>Ή αν έχετε κάποιον άλλο provider εκτός wordpress.com η λογική είναι η ίδια:</p>
+
+<p><code>&lt;link rel="openid.server" href="http://www.myopenid.com/server" /&gt;
+&lt;link rel="openid.delegate" href="http://yourid.myopenid.com/" /&gt;</code></p>
+
+<p><strong>Πώς θα είστε providers και εντελώς ανεξάρτητοι</strong></p>
+
+<p>Μπορείτε απλά να εγκαταστήσετε το <a href="http://siege.org/projects/phpMyID/">phpMyID</a>. Αυτό είναι όμως κάτι που δεν έχω δοκιμάσει ακόμα και έτσι θα σας πρότεινα να δείτε τις πηγές κάτω για περισσότερες πληροφορίες.</p>
+
+<p>Επίσης υπάρχουν και wordpress plugins που σας μετατρέπουν σε provider αλλά νομίζω ότι είναι λίγο υπερβολικό και άσκοπο.</p>
+
+<p>Αν θέλετε να χαρείτε κάπου το OpenID σας μπορείτε να κάνετε σχόλιο παρακάτω μιας και το WEBZ μετά την αναβάθμιση συνεργάζεται με το OpenID.</p>
+
+<div class="extlinks">
+<h4>Πηγές και Παραπομπές</h4>
+<ul>
+    <li><a href="http://duncandavidson.com/2008/03/using-your-domain-as-your-open.html">Using a Domain as Your OpenID</a></li>
+    <li><a href="http://simonwillison.net/2006/Dec/19/openid/">How to turn your blog in to an OpenID</a></li>
+    <li><a href="http://www.intertwingly.net/blog/2007/01/03/OpenID-for-non-SuperUsers">OpenID for non-SuperUsers</a></li>
+
+</ul>
+</div>
+</div>
+	</article>
+	
+
+
+</section>
+
+		</section>
+
+
+
+	</div><!-- end wrapper -->
+	<div id="footer">
+		<p class="copy">
+			&copy;2006 - 2012  by <a href="http://lexx.gr">lexx</a> &amp; <a href="https://twitter.com/PanosJee">PanosJee</a>
+		</p>
+
+	</div>
+</div> <!-- end page -->
+
+</body>
+</html>
+

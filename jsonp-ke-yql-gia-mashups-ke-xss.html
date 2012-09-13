@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="el-GR">
+<head>
+<meta name="description" content="King of hardcore tech and twisted thoughts" />
+<meta name="keywords" content="Web development, Web design, Web news, Coding, PHP, Technology" />
+<meta name="author" content="Alexander Lingris" />
+<meta name="generator" content="Kudos.gr Engine" />
+<meta charset="UTF-8" />
+<title>Webz | Jsonp και YQL για Mashups και XSS</title>
+
+<link rel="stylesheet" type="text/css" href="assets/css/static.css" />
+<link href="assets/img/favicon.ico" rel="shortcut icon" type="image/ico" />
+
+</head>
+<body class="">
+<div id="header">
+	<hgroup>
+		<h1 id="logo"><a href="index.html"><img src="assets/img/logo.png" alt="logo"></a></h1>
+		<h2 id="site_desc">King of hardcore tech and twisted thoughts</h2>
+	</hgroup>
+
+</div>
+		<section id="notice">
+			<p>The King is dead! RIP 2006-2012</p>
+			<span>Ένα μεγάλο ευχαριστώ σε όλη την παρέα</span><br>
+			<span>Περισσότερα στο <a href="http://lexx.gr">lexx.gr</a></span>
+		</section>
+<div id="page">
+
+
+	<div id="wrapper">
+		<section id="main">
+			<h1>Jsonp και YQL για Mashups και XSS</h1>			<section id="main">
+	<article  class="post single">
+
+		<p class="meta">16 Nov 2009 by Savvas Georgiou</p>
+		<div class="content"><h3>To πρόβλημα: Same Origin Policy.</h3>
+
+<p>Όπως θα γνωρίζετε ήδη οι περισσότεροι, ένας σοβαρός περιορισμός των client-side τεχνολογιών (Javascript, AJAX..), είναι το <a title="" href="http://en.wikipedia.org/wiki/Same_origin_policy">Same Origin Policy</a>. Με λίγα λόγια, οι browsers δεν επιτρέπουν την χρήση scripts που δεν προέρχονται από το ίδιο domain, subdomain και  port. Πολύ απλά δηλαδή όταν είσαι στο http://mysite.com δεν μπορείς να ζητήσεις εκτέλεση script που προέρχεται από οποιοδήποτε άλλο domain (http://yoursite.com), subdomain (http://www.mysite.com) ή σε άλλο port (https://mysite.com:81). </p>
+
+<p>Σε μια προσπάθεια να ξεπεραστεί αυτό ο περιορισμός, έχουν επιστρατευθεί κατά καιρούς πολλές λύσεις όπως: 1) η χρήση proxy servers με βασικό ελάττωμα ότι δεν είναι βιώσιμη λύση για scalable εφαρμογές,  2) η χρήση frames μέσα σε μία εφαρμογή, όπου third-party περιεχόμενο μπορεί να έρθει αλλά και πάλι αυτό το περιεχόμενο δεν θα είναι προσβάσιμο από την υπόλοιπη εφαρμογή 3) ακόμα και λύσεις που εμπλέκουν flash τεχνολογία η οποία διαθέτει διαφορετικό <a title="" href="http://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html#cross-domain-policy">cross domain policy</a></p>
+
+<h3>JSON with padding και Cross Site Scripting</h3>
+
+<p>Εδώ θα παρουσιάσουμε μία διαφορετική λύση, που βασίζεται στο γεγονός ότι το Same Origin Policy δεν απαγορεύει αυτό που λέμε στα ελληνικά dynamic script insertion. Με λίγα λόγια μια συνάρτηση που εκτελείτε στο current domain μπορεί να πάρει ως όρισμα, την εκτέλεση μιας συνάρτησης που βρίσκεται σε άλλο αρχείο, σε άλλο domain και γενικά οπουδήποτε. Ένα σύντομο παράδειγμα για να γίνει κατανοητό αυτό: </p>
+
+<p>Στο http://yoursite.com/foo.js έχουμε την μοναδική γραμμή Javascript κώδικα  </p>
+
+<p><code lang="javascript">
+showFetchedData({ temperature: '35.2'}); 
+</code></p>
+
+<p>Στο http://mysite.com/test.html έχουμε τον κώδικα </p>
+
+<p><code lang="html"></p>
+
+<script type="text/javascript">
+function showFetchedData(data) {
+    alert("The temperature is " + data.temperature);
+}
+</script>
+
+<p><script type="text/javascript" src="http://yoursite.com/foo.js"></script>
+ </code></p>
+
+<p>
+Με την παραπάνω τεχνική καταφέραμε ουσιαστικά, να μεταφέρουμε το δεδομένο ότι η θερμοκρασία είναι 35.2 βαθμοί, που δίνεται από την υπηρεσία του yoursite, στο mysite.!! Σε μια εξέλιξη του παραπάνω, θα μπορούσαμε να έχουμε πολλά δεδομένα στη κλίση της showFetchedData και να τα μεταφέρουμε στο δικό μας domain με μόνη προϋπόθεση να έχουμε ήδη ορίσει την showFetchedData στην δικιά μας πλευρά. Αυτή η σύνταξη των δεδομένων ονομάζεται <a href="http://en.wikipedia.org/wiki/JSON#JSONP">JSONP</a> (JSON with padding) και δεν είναι τίποτα άλλο από μια συνάρτηση με όρισμα δεδομένα σε μορφή JSON.</p>
+
+<h3>Mashups με YQL και Jquery.getJson()</h3>
+
+<p>Ωραία όλα αυτά, αλλά πόσες υπηρεσίες υπάρχουν που επιστρέφουν δεδομένα σε μορφή JSOΝP? Καλώς ή κακώς όχι πολλές.. Και εδώ έρχεται η χρήση της <a href="http://developer.yahoo.com/yql/">YQL</a>. H Yahoo Query Language, μεταξύ των άλλων προσφέρει και την υπηρεσία data, που ουσιαστικά δέχεται query που ζητάει μια οποιαδήποτε ιστοσελίδα + (προαιρετικά) XPATH και επιστρέφει τα δεδομένα σε μορφή JsonP.</p>
+
+<p><img height="235" width="563" jquery.getjson="" ajax="" docs.jquery.com="" http:="" title="Μία χαρακτηριστική εικόνα από το ibm developers network" alt="ibm" yql.1.png="" webz="" files.savvas.me="" src="files/yql.2.gif" /></p>
+
+<p><img height="641" width="887" src="files/yql.1.png" alt="yql" title="Ένα απλό παράδειγμα scraping της εικόνας της wiki σελίδας για την Ferrari" /></p>
+
+<p>Όπως βλέπουμε μας επιστρέφει σε μορφή JsonP τα στοιχεία της εικόνας. Το μόνο που θα μας έλειπε θα ήταν ο ορισμός της showFetchedData. Αυτή την διαδικασία την αναλαμβάνει η <a href="http://docs.jquery.com/Ajax/jQuery.getJSON">jquery.getJson</a></p>
+
+<p><code lang="javascript"> 
+$.getJSON("http://query.yahooapis.com/[ το YQL query ]&format=json&amp;callback=?", function(data){     
+// data διαθέσιμο εδώ!!     
+// manipulating data.query.results.img 
+}); 
+</code></p>
+
+<p> H YQL μας επιτρέπει να ορίσουμε το όνομα της callback συνάρτησης (της showFetchedData στα παραδείγματά μας) όμως επιλέγουμε ? ώστε να έχουμε τα δεδομένα διαθέσιμα στην συνάρτηση-όρισμα της getJson όπως φαίνεται και στο παράδειγμα. <br />
+Τέλος εδώ. Ελπίζω στο μέλλον να πούμε περισσότερα τόσο για τα client-side mashups όσο και για την YQL, που αποτελεί την απόδειξη ότι η Yahoo, όσο και αν πέφτει η μετοχή της, παρέχει ακόμα κορυφαίες υπηρεσίες.</p>
+</div>
+	</article>
+	
+
+
+</section>
+
+		</section>
+
+
+
+	</div><!-- end wrapper -->
+	<div id="footer">
+		<p class="copy">
+			&copy;2006 - 2012  by <a href="http://lexx.gr">lexx</a> &amp; <a href="https://twitter.com/PanosJee">PanosJee</a>
+		</p>
+
+	</div>
+</div> <!-- end page -->
+
+</body>
+</html>
+

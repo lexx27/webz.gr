@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="el-GR">
+<head>
+<meta name="description" content="King of hardcore tech and twisted thoughts" />
+<meta name="keywords" content="Web development, Web design, Web news, Coding, PHP, Technology" />
+<meta name="author" content="Alexander Lingris" />
+<meta name="generator" content="Kudos.gr Engine" />
+<meta charset="UTF-8" />
+<title>Webz | Οδηγός αναβάθμισης Drupal 6 σε Drupal 7</title>
+
+<link rel="stylesheet" type="text/css" href="assets/css/static.css" />
+<link href="assets/img/favicon.ico" rel="shortcut icon" type="image/ico" />
+
+</head>
+<body class="">
+<div id="header">
+	<hgroup>
+		<h1 id="logo"><a href="index.html"><img src="assets/img/logo.png" alt="logo"></a></h1>
+		<h2 id="site_desc">King of hardcore tech and twisted thoughts</h2>
+	</hgroup>
+
+</div>
+		<section id="notice">
+			<p>The King is dead! RIP 2006-2012</p>
+			<span>Ένα μεγάλο ευχαριστώ σε όλη την παρέα</span><br>
+			<span>Περισσότερα στο <a href="http://lexx.gr">lexx.gr</a></span>
+		</section>
+<div id="page">
+
+
+	<div id="wrapper">
+		<section id="main">
+			<h1>Οδηγός αναβάθμισης Drupal 6 σε Drupal 7</h1>			<section id="main">
+	<article  class="post single">
+
+		<p class="meta">01 Mar 2011 by lexx</p>
+		<div class="content"><p>Το webz.gr έκανε μια πολύ μεγάλη αναβάθμιση. Drupal 6 σε Drupal 7 με απόλυτη επιτυχία. Δεν ξέρω αν το έχει επιχειρήσει κανείς άλλος ακόμα ή αν είμαστε οι πρώτοι. Όπως και να έχει θα γράψω εδώ έναν οδηγό που για μένα δούλεψε πολύ καλά. Ο οδηγός αυτός χωρίζεται σε 3 μέρη. Τα <strong>βασικά βήματα</strong>, τo <strong>theming</strong> κάποια <strong>διάσπαρα</strong> πράγματα.</p>
+
+<p>ΠΑΜΕ!</p>
+
+<p>σημείωση: Υπάρχει <a href="http://drupal.org/documentation/upgrade/6/7">documentation</a> απλά δεν είναι τόσο ψαγμένο όσο το παρακάτω ;p</p>
+
+<p>σημείωση 2: Για να πετύχετε το upgrade θα πρέπει να έχετε καλή γνώση της αρχιτεκτονικής του drupal και βασικές γνώσεις php. Αλλιώς προτείνω να το ξανασκεφτείτε.</p>
+
+<p>σημείωση 3: Πολλά από τα πράγματα που αναφέρω παρακάτω μπορεί να μην είναι κατάλληλα για όλες τις σελίδες καθώς έχουν δοκιμαστεί μόνο εδώ.</p>
+
+<p> </p>
+
+<p>Άντε ΠΑΜΕ!</p>
+
+<ol>
+<li>Βεβαιωθείτε ότι όλα τα modules τα οποία χρησιμοποιείτε είναι διαθέσιμα για το Drupal 7 ή έχουν ενσωματωθεί στο core. </li>
+<li>Αναβαθμίστε το Drupal 6 στην τελευταία του έκδοση, το ίδιο και όλα τα modules. </li>
+<li>Κάνετε 20 backup τα αρχεία σας και την βάση δεδομένων. </li>
+<li>Αντιγράψτε όλα σας τα αρχεία και την βάση δεδομένων σε κάποιο άλλο σημείο του server ή και σε κάποιον άλλο server. Αν κάτι πάει στραβά, θέλετε το παλιό installation να τρέχει. </li>
+<li>Κάνετε login ως ο user 1 και βάζετε το site σε maintenance mode. </li>
+<li>Βάζετε ως βασικό theme το Garland. </li>
+<li>Κάνετε disable ολα τα modules πέρα από τα core. </li>
+<li>Σβήνετε όλα τα core αρχεία από το ftp πέρα από αυτά που βρίσκονται στο sites directory, με εξαίρεση το sites/default/default.settings.php, το οποίο το σβήνετε επίσης. </li>
+<li>Εάν είχατε κάνει αλλαγές στο .htaccess και στο robots.txt, θα πρέπει να τις κάνετε ξανά. </li>
+<li>Κατεβάζετε το drupal 7, το κάνετε extract και τρέχετε το update.php αφού βεβαιωθείτε ότι το sites/default/settings.php είναι writabble.</li>
+<li>Μόλις ολοκληρωθεί το update κάνετε ένα backup. </li>
+</ol>
+
+<p>Πάνω κάτω αυτά που είπαμε τώρα είναι ένα βαρεμένο version του readme.txt.</p>
+
+<h2>Πάμε στα πιο ψαγμένα.</h2>
+
+<p>Το <a href="http://drupal.org/project/cck">cck module</a> μπήκε στον πυρήνα αλλά δεν κάνει αυτόματα import τα παλιά πεδία. Τι κάνουμε για αυτό; Κατεβάζουμε το τελευταίο version (7.x) του cck module (ακόμα είναι dev αλλά εμένα μου έπαιξε καλά) και κάνουμε enable το <strong>content_migrate</strong>. Αν πάνε όλα καλά αυτό το module θα μεταφέρει τα παλιά cck στο core του drupal. Μόλις όλα τα cck γίνουν import μπορούμε να αρχίσουμε να κάνουμε uninstall τα παλιά module του ckk(πχ. imagefield κλπ) και άλλα module τα οποία έχουν μεταφερθεί στο core.</p>
+
+<p>Τι γίνεται τώρα εδώ. Πολλά module δεν γίνονται uninstall γιατί βαράνε errors επειδή χρησιμοπιούν functions που έχουν καταργηθεί στο drupal 7 και βγάζουν error. Υπάρχουν 2 περιπτώσεις.</p>
+
+<ol>
+<li>Το πρόβλημα βρίσκεται στο αρχείο module.install </li>
+<li>Το πρόβλημα βρίσκεται στο αρχείο module.module </li>
+</ol>
+
+<p>Στην πρώτη περίπτωση πρέπει να ανοίξουμε το module.install και να αντικαταστήσουμε τα function που έχουν καταργηθεί με κάποια που τα έχουν αναπληρώσει έτσι ώστε να γίνει το uninstall σωστά.</p>
+
+<p>Στην δεύτερη περίπτωση έκανα κάτι που δεν ξέρω αν είναι απόλυτα σωστό. Μου δούλεψε πάντως. Έκανα rename to module.module έτσι ώστε να μην ασχοληθεί μαζί του και έγινε κανονικά η διαδικάσία.</p>
+
+<p>Για τα module τα οποία δεν έχουν μεταφερθεί στο core, απλά βάζουμε το νέο version και κάνουμε update.</p>
+
+<p>Βεβαιωθείτε ότι έχετε διαγράψει από το ftp τα module που πλέον δεν χρησιμοποιείτε.</p>
+
+<h2>Theming</h2>
+
+<p>Αν έχετε κάποιο theme framework όπως το Zen, βάζετε την επόμενη του έκδοση του και αρχείο αρχείο κάνετε τις αλλαγές που χρειάζεται. Κάποια παραδείγματα.</p>
+
+<ul>
+<li>Για να κάνει ovverride το node.tpl.php ενός αρχείου θέλει δύο παύλες πλέον. node--post.tpl.php αντί για node-post.php. </li>
+<li>Έχουν αλλάξει πολλά variable, το object tree του $node αλλά και η λογική του $content. Παίζει πλέον με το render() function. </li>
+<li>Τα taxonomies πλέον για το node είναι refernced cck fields και παίζουν όπως και τα άλλα ccs field με το render(). Παράδειγμα render($content[field_whatever]).</li>
+</ul>
+
+<p>Δεν θα σας τα πω όλα, το πιάσατε το νόημα. Αν έχετε πολύ παραμετροποιημένα theme, η φάση είναι pain in the ass. Η νέα λογική όμως είναι ανώτερη με διαφορά από την προηγούμενη.</p>
+
+<h2>Γενικά</h2>
+
+<p>Παρακάτω διάσπαρτα προβληματάκια που συνάντησα και η λύση τους</p>
+
+<ul>
+<li>Το l() function έχει αλλάξει με αποτέλεσμα να δημιουργήσει προβλήματα σε διάφορα σημεία. </li>
+<li>Τα imported cck field είναι πιθανό να βγάζουν errors. Δεν βρήκα λύση να ξεφορτωθώ τα error αλλά δεν δημιουργούν κάποιο πρακτικό πρόβλημα. Για να μην τα βλέπουν οι χρήστες τα έκανα visible μόνο για τον admin μέσω css. </li>
+<li>Τα token έχουν αλλάζει λογική, όπου τα έχετε χρησιμοποιήσει θα πρέπει να τα ξαναφτιάξετε. </li>
+<li>Τα views δεν γίνονται import από το παλιό version, χεράκι και εκεί. </li>
+</ul>
+
+<p>Γενικά δεν είναι μια εύκολη διαδικασία, σε μερικά site μπορεί να είναι ακόμα αδύνατη μάλιστα η αναβάθμιση. Αν το επιχειρήσετε θα χρειαστείτε 2 μέρες τουλάχιστον καθαρές από κάθε αντιπερισπαμό για να μην κάνετε λάθη. Εμένα μου πήρε περίπου 12 ώρες το full transition και δεν χρειάστηκε πουθενά να κάνω κάτι 2 φορές αλλά αυτό δεν είναι το στάνταρ.</p>
+
+<p>Επίσης το webz ήταν ένα σχετικά απλό site, πιο πολύπλοκες σελίδες ίσως να χρειάζονται περισσότερο χρόνο. Αν έχετε να κάνετε διορθώσεις, επισημάνεις ή και να ρωτήσετε κάτι, με μεγάλη χαρά να σας απαντήσω και να εμπλουτήσω το θέμα.</p>
+</div>
+	</article>
+	
+
+
+</section>
+
+		</section>
+
+
+
+	</div><!-- end wrapper -->
+	<div id="footer">
+		<p class="copy">
+			&copy;2006 - 2012  by <a href="http://lexx.gr">lexx</a> &amp; <a href="https://twitter.com/PanosJee">PanosJee</a>
+		</p>
+
+	</div>
+</div> <!-- end page -->
+
+</body>
+</html>
+

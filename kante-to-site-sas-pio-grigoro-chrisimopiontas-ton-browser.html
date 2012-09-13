@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="el-GR">
+<head>
+<meta name="description" content="King of hardcore tech and twisted thoughts" />
+<meta name="keywords" content="Web development, Web design, Web news, Coding, PHP, Technology" />
+<meta name="author" content="Alexander Lingris" />
+<meta name="generator" content="Kudos.gr Engine" />
+<meta charset="UTF-8" />
+<title>Webz | Κάντε το site σας πιο γρήγορο χρησιμοποιώντας τον browser</title>
+
+<link rel="stylesheet" type="text/css" href="assets/css/static.css" />
+<link href="assets/img/favicon.ico" rel="shortcut icon" type="image/ico" />
+
+</head>
+<body class="">
+<div id="header">
+	<hgroup>
+		<h1 id="logo"><a href="index.html"><img src="assets/img/logo.png" alt="logo"></a></h1>
+		<h2 id="site_desc">King of hardcore tech and twisted thoughts</h2>
+	</hgroup>
+
+</div>
+		<section id="notice">
+			<p>The King is dead! RIP 2006-2012</p>
+			<span>Ένα μεγάλο ευχαριστώ σε όλη την παρέα</span><br>
+			<span>Περισσότερα στο <a href="http://lexx.gr">lexx.gr</a></span>
+		</section>
+<div id="page">
+
+
+	<div id="wrapper">
+		<section id="main">
+			<h1>Κάντε το site σας πιο γρήγορο χρησιμοποιώντας τον browser</h1>			<section id="main">
+	<article  class="post single">
+
+		<p class="meta">17 Oct 2010 by PanosJee</p>
+		<div class="content"><p>Τα μηχανήματα μας πλέον είναι αρκετά γρήγορα, οι συνδέσεις επίσης, οι browser μας τείνουν να γίνουν λειτουργικά συστήματα. Απεναντίας οι servers ζορίζονται και όταν ζορίζονται πρέπει να βάλουμε το χέρι στην τσέπη. Οι διεπαφές μας γίνονται πιο πολύπλοκες και ως γνωστόν λογική μέσα στα views είναι κακό (τζιζ) και αν είσαι developer πρέπει να αντιμετωπίσεις τη διαστροφή του designer που θα σου πει, κοίτα φιλαράκι εγώ CSS και Javascript μόνο, βγάλε τα μάτια σου, πάω σπίτι! Και σαν μην έφταναν όλα αυτά έχουμε πέρα από την HTML να φτάξουμε και ένα XML, JSON api για mobile applications και λοιπά.&nbsp;</p>
+
+<p>Μην απογοητεύστε και μην απελπίζεστε! Ήρθε η ώρα να δώσετε στον designer να κάνει λίγη δουλειά ακόμα (δώστε του JSON που καταλαβαίνει και αφήστε τον να βγάλε το φίδι από την τρυπά ενώ εσείς πείνετε χαιρέκακα τον καφέ σας) αλλά και να γλιτώσετε λίγο cpu time και μερικά ευρώ το χρόνο και φυσικά να μη γράψετε εκείνο το api για το iPhone.</p>
+
+<p>Καταρχήν ξεκινάμε με τη διαπίστωση ότι το JSON είναι πολύ πιο friendly από την XML και φυσικά πλέον omni-present. Κατά δεύτερον ας σκεφτούμε πρακτικά: μπορώ να στέλνω μια σχεδόν στατική σελίδα και τα δεδομένα μου σε json και ο χρήστης (λέγε με browser) να τα φτιάχνει αυτός locally αντί να σπαταλώ cpu cycles στους πανάκριβους servers μου; Και αν δεν είναι ο browser δε με νοιάζει, μπορεί και το iphone να καταλάβει JSON και να φτιάξει το view. Θες και API έτοιμο το έχω είτε σε λένε HTML είτε RESTful API.</p>
+
+<p>Πώς γίνεται αυτό; Υπάρχουν πολλές λύσεις με αγαπημένες μου το <a href="http://github.com/janl/mustache.js/">mustache.js</a>&nbsp;(σημειώστε ότι με το ίδιο data representantion μπορείτε να δημιουργείτε views μέσα από Ruby, Python, Obj-C, Erlang, Lua κλπ) και το τελευταίο fork το <a href="http://github.com/wycats/handlebars.js">handlebars</a>. To Google το κάνει αρκετό καιρό τώρα στο Gmail με τα <a href="http://code.google.com/p/closure-templates/">closure-templates</a>. Επίσης η τάση αυτή κερδίζει έδαφος με τα νέα frameworks όπως <a href="http://cappuccino.org/">Cappuccino</a> και <a href="http://www.sproutcore.com/">Sproutcore</a>.</p>
+
+<p>Θα μας δείξεις κανά κώδικα; Βεβαίως! Δείτε ένα κουτσουρεμένο κώδικα από το <a href="http://www.socialcaddy.com">SocialCaddy</a> για να δημιουργήσουμε το address book ενός χρήστη χρησιμοποιώντας το mustache.js για τον browser και το pystache (python version) όταν δεν μπορούμε να έχουμε javascript (πχ όταν στέλνουμε email).</p>
+
+<pre><code>&lt;!-- If there data then output some users--&gt;
+&lt;div id="template-row"&gt;
+    {{#contacts}}
+        &lt;div rel="{{ id }}" class="{{#linkedin}}linkedin {{/linkedin}} {{#gmail}}gmail{{/gmail}}  {{#facebook}}facebook{{/facebook}} contact" id="contact_{{ id }}"&gt;
+        &lt;label for="contact_{{ id }}_chk" class="checkbox" rel="{{ id }}"&gt;
+            &lt;input type="checkbox" id="contact_{{ id }}_chk" /&gt;
+        &lt;/label&gt;
+            &lt;a href="#" class="contact"&gt;
+            &lt;span class="name"&gt;{{ title }}&lt;/span&gt;
+        &lt;/div&gt;
+        {{&gt; user_pic }}
+        &lt;/div&gt;
+    {{/contacts}}
+        &lt;!-- No data no honey, display there is nothing --&gt;
+    {{^contacts}}
+        No contacts found.
+    {{/contacts}}
+&lt;/div&gt;  
+
+
+
+
+// Find the mustache template in the template-row div and then compile it!
+row_template = Handlebars.compile($('#template-row').html().replace(/{&amp;gt;/g,'{&gt;'));
+// Give some data
+[{"picture_url": "http://profile.ak.fbcdn.net/apic.jpg", "facebook": 1, "id": 1903, "regular": 1, "title": "My Cool Friend"}]
+// And caboom! Get the html
+html = card_template(view, {'partials': partials});
+</code></pre>
+
+<p>Μια διαφορετική υλοποιήση χρησιμοποιώ και στο <a href="http://vote.vfm883.gr">http://vote.vfm883.gr</a> όπου σερβίρω μια cachαρισμένη ΗΤΜL σελίδα με την playlist και μετά το sorting και λοιπά γίνονται στον browser, κοινώς κάθε φορά που αλλάζει η playlist ο server δε θα φτιάξει ποτέ την playlist με νέα σειρά απλά θα στείλει στον χρήστη τα τραγουδία και τους ψήφους. Αποτελέσμα; Ο server-side χρόνος για rendering είναι πάντα κάτω από 60ms.</p>
+
+<p>Με την έλευση της HTML5 με τα websockets, threads, storage περιμένετε οι εφαρμογές (όχι τα content sites) να μεταναστεύουν σε αυτή τη λογική ή ο web browser θα είναι ένας ακόμα client για το service σας. Κοινώς τα websites πλέον θα είναι webservices.&nbsp;</p>
+</div>
+	</article>
+	
+
+
+</section>
+
+		</section>
+
+
+
+	</div><!-- end wrapper -->
+	<div id="footer">
+		<p class="copy">
+			&copy;2006 - 2012  by <a href="http://lexx.gr">lexx</a> &amp; <a href="https://twitter.com/PanosJee">PanosJee</a>
+		</p>
+
+	</div>
+</div> <!-- end page -->
+
+</body>
+</html>
+

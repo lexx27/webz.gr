@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="el-GR">
+<head>
+<meta name="description" content="King of hardcore tech and twisted thoughts" />
+<meta name="keywords" content="Web development, Web design, Web news, Coding, PHP, Technology" />
+<meta name="author" content="Alexander Lingris" />
+<meta name="generator" content="Kudos.gr Engine" />
+<meta charset="UTF-8" />
+<title>Webz | OpenID vs CardSpace</title>
+
+<link rel="stylesheet" type="text/css" href="assets/css/static.css" />
+<link href="assets/img/favicon.ico" rel="shortcut icon" type="image/ico" />
+
+</head>
+<body class="">
+<div id="header">
+	<hgroup>
+		<h1 id="logo"><a href="index.html"><img src="assets/img/logo.png" alt="logo"></a></h1>
+		<h2 id="site_desc">King of hardcore tech and twisted thoughts</h2>
+	</hgroup>
+
+</div>
+		<section id="notice">
+			<p>The King is dead! RIP 2006-2012</p>
+			<span>Ένα μεγάλο ευχαριστώ σε όλη την παρέα</span><br>
+			<span>Περισσότερα στο <a href="http://lexx.gr">lexx.gr</a></span>
+		</section>
+<div id="page">
+
+
+	<div id="wrapper">
+		<section id="main">
+			<h1>OpenID vs CardSpace</h1>			<section id="main">
+	<article  class="post single">
+
+		<p class="meta">24 Oct 2007 by PanosJee</p>
+		<div class="content"><p>
+Αν και στο άρθρο αυτό στην ουσία παρουσιάζουμε και συγκρίνουμε τις 2 τεχνολογίες το vs στον τίτλο είναι κατά κάποιο τρόπο παραπλανητικό. Αλλά τι κοινό μπορεί να έχει μια τεχνολογία της Microsoft με μία που είναι παιδί του open source κόσμου;
+</p>
+
+<p>
+Κατ' αρχάς θα πρέπει να διευκρινίσω γιατί μιλάμε. Το OpenID αλλά και το Cardspace σε μεγαλύτερο ή μικρότερο βαθμό θέλουν να λύσουν το πρόβλημα των δεκάδων κωδικών που πρέπει να αποστηθίζουμε για να έχουμε πρόσβαση σε άλλες τόσες δεκάδες δικτυακές τοποθεσίες. Αλήθεια εσείς σε πόσες σελίδες έχετε κωδικό πρόσβασης; Προσωπικά αν και προσπαθώ να έχω το ίδιο password, username παντού αυτό δεν είναι δυνατόν και πλέον γράφω σε ένα τετράδιο για σιγουριά όλους μου τους κωδικούς... So old fashioned...
+</p>
+
+<p>
+Και εδώ έρχονται οι δύο αυτές τεχνολογίες φέρνοντας μας το αυγό του Κολόμβου. Φανταστείτε να είχατε ένα login για όλες τις σελίδες σας... όλες όμως ! (single sign-on)
+</p>
+
+<p>
+Ας δούμε αναλυτικότερα όμως τις δύο (πιο δημοφιλείς) λύσεις για το περιβόητο <strong>single sign-on</strong>
+</p>
+
+<p>
+<img src="http://www.webz.gr/wp-content/plugins/hot-linked-image-cacher/upload/corepulse.de/www/misc/openid-logo.png" alt="openid" />
+To OpenID ήταν μια προσπάθεια που ξεκίνησε στα πλαίσια του LiveJournal.com αλλά σύντομα προτάθηκε σαν πρότυπο της IETF και πλέον τείνει να αποτελέσει ένα διεθνές standard. Βασικά πρόκειται για μια υπηρεσία κυρίως signle sign-on και όχι τόσο authentication (προς το παρόν, γιατί αυτό θα αλλάξει με το OpenID 2.0). <br />
+Πώς λειτουργεί; Κατ' αρχάς θα πρέπει να έχουμε ένα OpenID λογαριασμό π.χ. στο <a href="http://www.myopenid.com">myopenid.com</a>. Εκεί θα δώσουμε κάποια στοιχεία μας αλλά και όνομα χρήστη και κωδικό (παραδοσιακά δηλαδή). Από εκεί και πέρα όταν συνδεθούμε στον πάροχο του OpenID αποθηκεύεται ένα cookie. Αν τώρα θελήσουμε να κάνουμε εγγραφή σε ένα site που υποστηρίζει OpenID δεν έχουμε παρά να δώσουμε το URL που αντιστοιχεί στο λογαριασμό μας στον πάροχο που διαλέξαμε π.χ. <em>panosjee.myopenid.com</em>. Στη συνέχεια η εφαρμογή στην οποία βρισκόμαστε θα μας στείλει (αν έχει ρυθμιστεί έτσι) στον πάροχο (myopenid.com στην προκειμένη περίπτωση) και θα μας ρωτήσει αν θέλουμε όντως αυτή η σελίδα να έχει το account μας. Με ένα απλό ΟΚ η εγγραφή μας τελείωσε εκτός αν απαιτούνται επιπλέον στοιχεία από την εφαρμογή. Την επόμενη φορά που θα θέλουμε να κάνουμε login απλά δίνουμε το URL μας - και αν είμαστε συνδεδεμένοι στο myopenid.com ή το cookie είναι ενεργό - κατευθείαν μπαίνουμε στη σελίδα μας στην αντίθετη περίπτωση θα πρέπει πρώτα να κάνουμε sign in στο myopenid
+</p>
+
+<p>
+<img src="http://www.webz.gr/wp-content/plugins/hot-linked-image-cacher/upload/corepulse.de/photos/storage/1004.73.11234.infocard_114x80.png" alt="cardspace" />
+Διαφορετική φιλοσοφία εδώ αλλά και αρκετά ανοικτή και επεκτάσιμη. Μάλιστα ο Lawrence Lessing (Creative Commons) είπε το έξης "It 's too good to be from Microsoft" και φυσικά όσο αφορά την ανοικτότητα, την ασφάλεια και την ιδιωτικότητα. Στην ουσία το Cardspace είναι μια εφαρμογή ανταλλαγής και διαχείρισης ηλεκτρονικών ταυτοτήτων. Το Cardspace είναι κομμάτι του .ΝΕΤ 3.0 και υπάρχει ήδη στα Vista. Οι ηλεκτρονικές ταυτότητες μπορούν να εκδίδονται είτε προσωπικά από το χρήστη είτε από κάποιον identity provider κάτι που σημαίνει ισχυρή ταυτότητα π.χ. μπορεί να εκδίδεται από την τράπεζα σας και να μπορείτε έτσι να κάνετε οικονομικές συναλλαγές είτε από την κυβέρνηση και να χρησιμοποιείται σαν ηλεκτρονική ταυτότητα. Το θέμα όμως είναι ότι το Cardspace δεν έχει ιδιαίτερες προτιμήσεις στους identity μηχανισμούς ή αλλιώς στο security token που θα χρησιμοποιείσετε, θα μπορούσε δηλαδή να χρησιμοποιηθεί και OpenID   για την ταυτοποίηση σας! Και μάλιστα υπάρχουν προσπάθειες να γεφυρωθούν οι 2 τεχνολογίες.
+Identity selectors υπάρχουν ήδη για ΙΕ7 (φυσικά), Firefox (σε Windows), Safari αλλά υπάρχουν και μεταφορές και για Linux στηριζόμενες κυρίως σε Java.  Η ευκολία του Cardspace είναι το interface αφού ούτε που χρειάζεται να γράψετε κάτι απλά να στείλετε μια κάρτα (identity)
+<img src="http://www.webz.gr/wp-content/plugins/hot-linked-image-cacher/upload/corepulse.de/en-us/library/Aa480189.introinfocard03(en-us,MSDN.10).gif" alt="cardspace" />
+</p>
+
+<p>
+Θα έλεγα ότι παρατηρείται μια κινητικότητα κυρίως γύρω από το OpenID αφού αρκετές σελίδες το υποστηρίζουν αλλά και βγαίνουν συνέχεια Plugins για υποστήριξη αλλά και η Microsoft προσπαθεί να συνεργαστεί ώστε να υπάρξει μια κοινή στρατηγική από τα μεγάλα projects που έχουν ως στόχο την ψηφιακή ταυτότητα. Μακάρι να ωριμάσουν και να χρησιμοποιηθούν γρήγορα γιατί το τετράδιο μου τελειώνει...<br /><br />
+
+Links
+<a href="http://en.wikipedia.org/wiki/Windows_CardSpace">Cardspace @ wikipedia</a>
+<a href="http://en.wikipedia.org/wiki/OpenID">OpenID @ wikipedia</a>
+<a href="http://openid.net/">OpenID</a>, official homepage
+<a href="http://cardspace.netfx3.com/">Cardspace</a>, official homepage
+
+</p>
+</div>
+	</article>
+	
+
+
+</section>
+
+		</section>
+
+
+
+	</div><!-- end wrapper -->
+	<div id="footer">
+		<p class="copy">
+			&copy;2006 - 2012  by <a href="http://lexx.gr">lexx</a> &amp; <a href="https://twitter.com/PanosJee">PanosJee</a>
+		</p>
+
+	</div>
+</div> <!-- end page -->
+
+</body>
+</html>
+

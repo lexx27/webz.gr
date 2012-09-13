@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="el-GR">
+<head>
+<meta name="description" content="King of hardcore tech and twisted thoughts" />
+<meta name="keywords" content="Web development, Web design, Web news, Coding, PHP, Technology" />
+<meta name="author" content="Alexander Lingris" />
+<meta name="generator" content="Kudos.gr Engine" />
+<meta charset="UTF-8" />
+<title>Webz | Η δικιά σας μηχανή αναζήτησης!</title>
+
+<link rel="stylesheet" type="text/css" href="assets/css/static.css" />
+<link href="assets/img/favicon.ico" rel="shortcut icon" type="image/ico" />
+
+</head>
+<body class="">
+<div id="header">
+	<hgroup>
+		<h1 id="logo"><a href="index.html"><img src="assets/img/logo.png" alt="logo"></a></h1>
+		<h2 id="site_desc">King of hardcore tech and twisted thoughts</h2>
+	</hgroup>
+
+</div>
+		<section id="notice">
+			<p>The King is dead! RIP 2006-2012</p>
+			<span>Ένα μεγάλο ευχαριστώ σε όλη την παρέα</span><br>
+			<span>Περισσότερα στο <a href="http://lexx.gr">lexx.gr</a></span>
+		</section>
+<div id="page">
+
+
+	<div id="wrapper">
+		<section id="main">
+			<h1>Η δικιά σας μηχανή αναζήτησης!</h1>			<section id="main">
+	<article  class="post single">
+
+		<p class="meta">05 May 2008 by PanosJee</p>
+		<div class="content"><p>
+<img src="http://lucene.apache.org/solr/images/solr.png" alt="solr" />
+Πολλές φορές θέλουμε να δημιουργήσουμε τη δικιά μας μηχανή αναζήτησης για τις σελίδες μας και πολλές φορές πολλοί καταφεύγουν σε <a href="http://www.google.com/coop/cse/">Custom Google Search</a> αλλά τί γίνεται όταν έχουμε να αναζητήσουμε βάση πεδίων όπως ημερομηνίες, αριθμητικά, boolean πεδία αλλά και τί γίνεται όταν έχουμε γλωσσολογικά φαινόμενα όπως ενικούς/πληθυντικούς, πτώσεις κλπ; Συνήθως κάποιος θα έφτιαχνε ένα custom query αλλά θεωρείται σχετικά κακή πρακτική μιας και αργό είναι και απασχολεί και τη βάση δεδομένων δημιουργώντας dealocks αλλά ούτε μπορούμε να κάνουμε fine tuning στον αλγόριθμο αναζήτησης.
+</p>
+
+<p>
+Έχοντας να αντιμετωπίσω όλα αυτά τα προβλήματα για ένα παλιότερο έργο με λίγη αναζήτηση βρήκα τον απόλυτο Indexer, το <a href="http://lucene.apache.org/solr/">SOLR</a>. Πρόκειται για ένα έργο του <a href="http://www.apache.org/">Apache Group</a> που βασίζεται στη μηχανή αναζήτησης Lucene και στην ουσία πρόκειται για μια web based έκδοση αυτής. Πιο αναλυτικά το <a href="http://lucene.apache.org/solr/">SOLR</a> είναι ένα web application το οποίο χρειάζεται έναν application server όπως Tomcat, Glassfish, Resin, Jetty για να παίξει. Σε αυτόν κάνουμε post αρχεία σε ΧΜL που περιέχουν τα δεδομένα μας. Προσοχή όμως πρέπει πρώτα να έχει οριστεί η γραμματική του XML αρχείο με τον τύπο και το πλήθος των πεδίων που θέλουμε. Στη συνέχεια το <a href="http://lucene.apache.org/solr/">SOLR</a> αναλαμβάνει να κάνει parse τα αρχεία και κατα επιθυμία να εκτελεστούν διάφορα φίλτρα όπως αφαίρεση χαρακτήρων, stopwords και λοιπά λεξολογικά αν το επιθυμούμε και φυσικά αν βρούμε τα κατάλληλα για την γλώσσα μας. Επίσης μας δίνεται η δυνατότητα να δώσουμε επιπλέον βάρος σε κάποιο πεδίο που θεωρούμε πιο σημαντικό. Στη συνέχεια δημιουργείται το index file για αστραπιαία αναζήτηση χωρίς πλέον να χρειάζεται να επισκεφθούμε το δίσκο μας. Τα αποτελέσματα επιστρέφονται σε πολλές μορφές όπως PHP, Ruby, .NET αντικείμενα, XML, JSON και λοιπά... Επιπλέον κάνει caching για μέγιστη απόδοση.
+</p>
+
+<p><strong>Μικρές Συμβουλές</strong></p>
+
+<ul>
+    <li>Αν δε τρέχετε ήδη κάποιον application server και δεν έχετε αρκετή μνήμη αλλά ούτε θέλετε την πολυπλοκότητα ενός Tomcat το SOLR έρχεται με τον <a href="http://www.mortbay.org/jetty-6/">Jetty</a>, πολύ μικρός και εύκολος στο στήσιμο.</li>
+    <li>Κάνετε τον Jetty να ακούει μόνο στο localhost και κλείστε τον προς τον έξω κόσμο.</li>
+    <li>
+Στην εφαρμοφή σας δημιουργείστε μια διεπαφή για το SOLR πριν αποθηκεύσετε ένα αντικείμενο στη βάση δεδομένων δημιουργείστε και ένα αντίστοιχο αρχείο XML και στείλτε στο SOLR με τη βοήθεια curl.</li>
+    <li>Αντίστοιχα φτιάχτε μια διεπαφή για να κάνετε queries και να λαμβάνετε αποτελέσματα
+</li>
+</ul>
+
+<p><strong>Παράδειγμα </strong>
+<a href="http://www.liaison.aueb.gr//index.php?option=com_search&amp;Itemid=5">Eδώ</a> βλέπετε ένα τέτοιo παράδειγμα όπου το SOLR δεν φαίνεται στον έξω κόσμο και ακούει μόνο στο http://127.0.0.1:8080 με AJAX καλείτα μια συνάρτηση PHP που διαμορφώνει ένα κατάλληλο URL με βάση το http://127.0.0.1:8080. Στη συνέχεια το αποτέλεσμα σε JSON επιστρέφεται από την ίδια συνάρτηση και μας εμφανίζει τα αποτελέσματα. Δοκιμάστε την ταχύτητα!</p>
+</div>
+	</article>
+	
+
+
+</section>
+
+		</section>
+
+
+
+	</div><!-- end wrapper -->
+	<div id="footer">
+		<p class="copy">
+			&copy;2006 - 2012  by <a href="http://lexx.gr">lexx</a> &amp; <a href="https://twitter.com/PanosJee">PanosJee</a>
+		</p>
+
+	</div>
+</div> <!-- end page -->
+
+</body>
+</html>
+

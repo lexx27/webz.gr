@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="el-GR">
+<head>
+<meta name="description" content="King of hardcore tech and twisted thoughts" />
+<meta name="keywords" content="Web development, Web design, Web news, Coding, PHP, Technology" />
+<meta name="author" content="Alexander Lingris" />
+<meta name="generator" content="Kudos.gr Engine" />
+<meta charset="UTF-8" />
+<title>Webz | Κάνε το Wordpress Blog σου να φορτώνει πιο γρήρορα</title>
+
+<link rel="stylesheet" type="text/css" href="assets/css/static.css" />
+<link href="assets/img/favicon.ico" rel="shortcut icon" type="image/ico" />
+
+</head>
+<body class="">
+<div id="header">
+	<hgroup>
+		<h1 id="logo"><a href="index.html"><img src="assets/img/logo.png" alt="logo"></a></h1>
+		<h2 id="site_desc">King of hardcore tech and twisted thoughts</h2>
+	</hgroup>
+
+</div>
+		<section id="notice">
+			<p>The King is dead! RIP 2006-2012</p>
+			<span>Ένα μεγάλο ευχαριστώ σε όλη την παρέα</span><br>
+			<span>Περισσότερα στο <a href="http://lexx.gr">lexx.gr</a></span>
+		</section>
+<div id="page">
+
+
+	<div id="wrapper">
+		<section id="main">
+			<h1>Κάνε το Wordpress Blog σου να φορτώνει πιο γρήρορα</h1>			<section id="main">
+	<article  class="post single">
+
+		<p class="meta">04 Mar 2008 by lexx</p>
+		<div class="content"><p>Πριν λίγες μέρες συνειδητοποίησα ότι το webz σέρνεται και πως έπρεπε απεγνωσμένα να βρω τρόπους για να μειώσω το loading time. Αυτό για μένα ήταν εύκολο, αρκούσε απλά να ψάξω. Μετά από αρκετό διαβασματάκι και πειραματισμούς θα σας παρουσιάσω τι έκανα στο wordpress μου για να γίνει 10 φορές γρηγορότερο. Και δεν υπερβάλω καθόλου. Η λογική είναι παρόμοια και για άλλες πλατφόρμες, όπως είναι λογικό, αλλά θα επικεντρωθώ στο wordpress.</p>
+
+<h2>1. Κατεβάστε τώρα το Firebug</h2>
+
+<p><a href='http://www.webz.gruploads/2008/03/screennet-timeline.gif' title='screennet-timeline.gif'><img align="right" src='http://www.webz.gruploads/2008/03/screennet-timeline.thumbnail.gif' alt='screennet-timeline.gif' /></a>Υποθέτω ότι έχετε firefox(αλλιώς δεν σας συμπαθώ) και σε δεύτερη φάση αν θέλετε αποτελέσματα σας προτρέπω να κατεβάσετε το <a href="http://www.getfirebug.com/">Firebug</a> έτσι ώστε να μπορέσετε να καταλάβετε πως και τι φορτώνει η σελίδα σας. Όπως θα δείτε και στο screenshot, αυτό το firefox addon δείχνει πόσα HTTP Requests υπάρχουν, ποια είναι αυτά και πόση ώρα κάνει το καθένα.</p>
+
+<h2>2. Μειώστε τα HTTP Requests</h2>
+
+<p>(Hollywood Trailer Voice)Για κάθε Javascript και CSS αρχείο. Για κάθε εικόνα και flash το site σας επιβαρύνεται με ένα HTTP Request για το καθένα. Το κάθε request στοιχίζει το λιγότερο 0.2 ms. Οπότε αν έχετε για παράδειγμα 20 requests, το site σας αυτομάτως θα κάνει 2 δευτερόλεπτα το λιγότερο για να φορτώσει. Προσπαθείστε λοιπόν αν έχετε πολλά διαφορετικά css αρχεία να τα χωρέσετε σε 1 και γενικότερα όσα λιγότερα scripts τρέχουν τόσο το καλύτερο. Οπότε ζυγίστε τι σας συμφέρει όταν βάζετε ένα script. Είναι τόσο απαραίτητο για να κάνω x πιο αργή τη σελίδα μου;</p>
+
+<h2>3. Μειώστε τα Queries που γίνονται στην Database</h2>
+
+<p>Παρακάτω βρίσκεται ένα τυπικό Wordpress Header</p>
+
+<p><code>&lt;title&gt;<span style="background: #FFC89F; color:fff;">&lt;?php bloginfo(’name’); ?&gt;&lt;?php bloginfo(’description’); ?&gt;</span>&lt;/title&gt;<br />
+&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;<span style="background: #FFC89F; color:fff;">&lt;?php bloginfo(’html_type’); ?&gt;</span>; charset=<span style="background: #FFC89F; color:fff;">&lt;?php bloginfo(’charset’); ?&gt;</span>” /&gt;<br />
+&lt;meta name=&quot;generator&quot; content=&quot;WordPress <span style="background: #FFC89F; color:fff;">&lt;?php bloginfo(’version’); ?&gt;</span>” /&gt;<br />
+&lt;link rel=&quot;stylesheet&quot; href=&quot;<span style="background: #FFC89F; color:fff;">&lt;?php bloginfo(’stylesheet_url’); ?&gt;</span>” type=”text/css” media=”screen” /&gt;<br />
+&lt;link rel=&quot;alternate&quot; type=&quot;application/rss+xml&quot; title=&quot;RSS 2.0&quot; href=&quot;<span style="background: #FFC89F; color:fff;">&lt;?php bloginfo(’rss2_url’); ?&gt;</span>” /&gt;<br />
+&lt;script type=&quot;text/javascript&quot; src=&quot;<span style="background: #FFC89F; color:fff;">&lt;?php bloginfo(’template_url’); ?&gt;</span>/mootools.js”&gt;&lt;/script&gt;</code></p>
+
+<p>Τα υπογραμμισμένα είναι Queries που γίνονται στην database χωρίς ουσιαστικό λόγο. Αλλάζοντας τα παραπάνω σε κανονικό κείμενο θα γλιτώσετε 7 queries και πιστέψετε με, δεν είναι λίγο. Ειδικά το Wordpress version στο generator πολλοί προτείνουν να το σβήσετε τελείως για να μην μπορεί κάποιος κακόβουλος να ξέρει την version σας. Ειδικά αν δεν έχετε αναβαθμίσει.</p>
+
+<p>Αλλάζουμε λοιπόν τον κώδικα σε</p>
+
+<p><code>&lt;title&gt;<span class="style8" style="background: #FFC89F; color:fff;">Webz - Web news and Reviews</span>&lt;/title&gt;<br />
+&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;<span style="background: #FFC89F; color:fff;">text/html</span>; charset=<span style="background: #FFC89F; color:fff;">UTF-8</span>” /&gt;<br />
+&lt;meta name=&quot;generator&quot; content=&quot;WordPress” /&gt;<br />
+&lt;link rel=&quot;stylesheet&quot; href=&quot;<span style="background: #FFC89F; color:fff;">http://www.webz.gr/wp-content/themes/webzstyle/files/style.css</span>” type=”text/css” media=”screen” /&gt;<br />
+&lt;link rel=&quot;alternate&quot; type=&quot;application/rss+xml&quot; title=&quot;RSS 2.0&quot; href=&quot;<span style="background: #FFC89F; color:fff;">http://feeds.feedburner.com/Webzone</span>” /&gt;<br />
+&lt;script type=&quot;text/javascript&quot; src=&quot;&quot;<span style="background: #FFC89F; color:fff;">http://www.webz.gr/wp-content/js/</span>/mootools.js”&gt;&lt;/script&gt;</code></p>
+
+<h2>4. Συμπίεση (Compression) - Whitespace και Αποθήκευση εικόνων</h2>
+
+<p>Η <strong>Συμπίεση </strong> μειώνει δραματικά το μέγεθος αρχείων όπως πχ του CSS αφαιρώντας όλα τα μη απαραίτητα κενά. Υπάρχουν και αρκετά plugin που κάνουν αυτή τη δουλειά όπως το <a href="http://dev.wp-plugins.org/wiki/css-compress">CSS Compress</a>.</p>
+
+<p>Επίσης καλό θα ήταν να μάθετε να γράφετε κώδικα χωρίς περιττά κενά. Αν και δεν θα κάνει τεράστια διαφορά στην ταχύτητα, σίγουρα θα βοηθήσει.</p>
+
+<p>Επίσης δεν ξέρω αν έχετε δει την επιλογή στο Photoshop που λέει "<strong>Save image for Web</strong>". Πιστέψετε με ότι η Adobe δεν έχει βάλει αυτή την επιλογή για πλάκα. ;)</p>
+
+<h2>5. Caching Pages</h2>
+
+<p>Μπορείτε να ανοίξετε το config αρχείο του WP και να προσθέσετε την παρακάτω φράση</p>
+
+<p><code>// Enable WP Object Cache:
+define(ENABLE_CACHE, true);</code></p>
+
+<p>Αυτό θα ενεργοποιήσει την built-in caching λειτουργία του Wordpress.</p>
+
+<p>To Caching στην ουσία αποθηκεύει τη σελίδα σε static μορφή και έτσι δεν κάνει πολλά πάρε δώσε με την βάση δεδομένων. Δεν το προτείνω σε μικρά site γιατί δεν θα κάνει μεγάλη διαφορά. Υπάρχουν πολλά plugin. Όμως για να τα χρησιμοποιήσει κάποιος θα πρέπει να είναι προσεχτικός. Σηκώνει ξεχωριστό post το caching.</p>
+
+<h2>6. Τα Τυπικά, τα Αυτονόητα και τα Προχωρημένα</h2>
+
+<p>Τα <strong>τυπικά</strong> είναι</p>
+
+<ul>
+    <li>Να έχετε πάντα την πιο νέα έκδοση</li>
+<li>Να χρησιμοποιείτε plugin που είναι απαραίτητα και όλα τα άλλα delete</li>
+<li>Πολλά plugin έχουν πολλές extra επιλογές οι οποίες επιβαρύνουν με queries στην βάση και js αρχεία.</li>
+<li>Γενικά ότι είναι περιττό δεν υπάρχει λόγος να υπάρχει.</li>
+</ul>
+
+<p>Tα <strong>Αυτονόητα </strong>δεν ξέρω αν είναι τόσο αυτονόητα. Όμως κώδικες για στατιστικά όπως αυτός του Google Analytics ή όποιον χρησιμοποιείτε είναι καλό να βρίσκεται στο footer έτσι ώστε να μην καθυστερεί το κεντρικό περιεχόμενο της σελίδας.</p>
+
+<p>Τα <strong>Προχωρημένα</strong> έχουν να κάνουν με ρυθμίσεις του server και της βάσης δεδομένων. Όμως είναι ένας τομέας που δεν έχω μελετήσει ακόμα. Επίσης σπάνια σε shared server υπάρχει η δυνατότητα να επέμβει κάποιος σε αυτές τις περιοχές.</p>
+
+<p>Μετά τις αλλαγές που έκανα η κεντρική σελίδα του Webz φορτώνει σε 1.5s περίπου από 12s+ που φόρτωνε πριν. Όλες οι απορίες και οι παρατηρήσεις είναι ευπρόσδεκτες.</p>
+</div>
+	</article>
+	
+
+
+</section>
+
+		</section>
+
+
+
+	</div><!-- end wrapper -->
+	<div id="footer">
+		<p class="copy">
+			&copy;2006 - 2012  by <a href="http://lexx.gr">lexx</a> &amp; <a href="https://twitter.com/PanosJee">PanosJee</a>
+		</p>
+
+	</div>
+</div> <!-- end page -->
+
+</body>
+</html>
+

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="el-GR">
+<head>
+<meta name="description" content="King of hardcore tech and twisted thoughts" />
+<meta name="keywords" content="Web development, Web design, Web news, Coding, PHP, Technology" />
+<meta name="author" content="Alexander Lingris" />
+<meta name="generator" content="Kudos.gr Engine" />
+<meta charset="UTF-8" />
+<title>Webz | H πλατφόρμα του Facebook</title>
+
+<link rel="stylesheet" type="text/css" href="assets/css/static.css" />
+<link href="assets/img/favicon.ico" rel="shortcut icon" type="image/ico" />
+
+</head>
+<body class="">
+<div id="header">
+	<hgroup>
+		<h1 id="logo"><a href="index.html"><img src="assets/img/logo.png" alt="logo"></a></h1>
+		<h2 id="site_desc">King of hardcore tech and twisted thoughts</h2>
+	</hgroup>
+
+</div>
+		<section id="notice">
+			<p>The King is dead! RIP 2006-2012</p>
+			<span>Ένα μεγάλο ευχαριστώ σε όλη την παρέα</span><br>
+			<span>Περισσότερα στο <a href="http://lexx.gr">lexx.gr</a></span>
+		</section>
+<div id="page">
+
+
+	<div id="wrapper">
+		<section id="main">
+			<h1>H πλατφόρμα του Facebook</h1>			<section id="main">
+	<article  class="post single">
+
+		<p class="meta">17 Sep 2008 by PanosJee</p>
+		<div class="content"><p><a href="http://wiki.developers.facebook.com/index.php/Main_Page"><img class="alignright size-thumbnail wp-image-1325" src="http://www.webz.gruploads/2008/09/bn_facebook-logo-100x100.jpg" alt="" width="100" height="100" /></a></p>
+
+<p>Αναμφίβολα το <a class="zem_slink" title="Facebook" rel="homepage" href="http://facebook.com">Facebook</a> είτε μας αρέσει είτε όχι είναι πανίσχυρο. Το χρησιμοποιούν όλοι οι φίλοι μας και δε μιλάω για αυτούς που διαβάζουν Webz, μιλάω για τη Μαρία, τον Αντώνη, τους συναδέλφους, τα παιδιά από το σχολείο και λοιπά. Είτε το θέλουμε είτε όχι η κοινωνική διάσταση των εφαρμογών είναι διαρκώς αυξανόμενη. Δείτε πχ. τα Google Docs, <a class="zem_slink" title="Basecamp (software)" rel="homepage" href="http://basecamphq.com">Basecamp</a> και λοιπά όπου πολλοί χρήστες συνεργάζονται online.</p>
+
+<p>Υπάρχουν όμως και χρήσιμες εφαρμογές για Facebook όπως το Zoho Office και σίγουρα θα δούμε κι άλλες αν και πιστεύω ότι το πιο σημαντικό όλων είναι το Facebook Connect. Σταδιακά πολλές εφαρμογές θα διαθέτουν και ένα Facebook interface πέρα από το κανονικό έτσι ώστε να εκμεταλλεύονται το virality που προσφέρεται. Αυτό όμως θα το παρουσιάσουμε λίγο αργότερα με εκτενή αναφορά στο πώς να το ενσωματώσουμε στις εφαρμογές μας. Προς το παρών θα κάνουμε μια μικρή ανάλυση των nuts and bolts της πλατφόρμας του Facebook.</p>
+
+<p>Ας δούμε αρχικά που τρέχει μια εφαρμογή του Facebook - οι οποίες πλέον μοιάζουν με εφαμοργές windows κατά κάποιο τρόπο αφού τις εγκαθιστούμε και τις ξεκινάμε όποτε θέλουμε χωρίς να βαραίνουν το προφίλ μας - σημειώστε το αυτό.</p>
+
+<p>[caption id="attachment_1373" align="alignnone" width="500" caption="Facebook App Cycle"]<img class="size-full wp-image-1373" src="http://www.webz.gruploads/2008/09/facebook-app-servers.gif" alt="" width="500" height="456" />[/caption]</p>
+
+<p>Μια εφαρμογή στο Facebook έχει ως πυρήνα της το facebook session. Δηλαδή ο κώδικας σας μοιράζεται το ίδιο session με το Facebook. Δηλαδή ξέρουμε ποιος χρήστης βρίσκεται στην εφαρμογή μας. Το Facebook κάθε φορά που εκτελείται η εφαρμογή μας στέλνει δεδομένα στο διακομιστή μας, εκεί εμείς εφαρμόζουμε τη λογική μας, δημιουργούμε τη διεπαφή μας (προσοχή, το Facebook είναι πολύ αυστηρό και στρυφνό ώρες ώρες με το css, javascript) και τα αποτελέσματα τα περικλείει με το κλασσικό layout του.</p>
+
+<p>Ομως δεν παίρνουμε απλά το session. Υπάρχει ένα σύνολο άλλων λειτουργιών και δυνατοτήτων:</p>
+
+<ul>
+    <li><strong>FBML - Facebook Markup Language</strong> ή αλλιώς χρησιμοποιείστε ελάχιστο κώδικα για τετριμμένες διαδικασίες που αφορούν την εμφάνιση όπως το όνομα, η φωτογραφία ενός χρήστη ή τα defaults tabs ή διάλογοι κλπ του Facebook</li>
+    <li><strong> FQL - Facebook Query Language</strong>, αναζητείστε φίλους με διάφορες παραμέτρους με μία γλώσσα όμοια της SQL</li>
+    <li><strong> API - REST-like Web Service</strong>, μιλείστε με το Facebook. Στείλτε μια ειδοποίηση, γράψτε στο feed ενός χρήστη είτε δηλώστε συμμετοχή σε ένα event.</li>
+    <li><strong> FBJS - Facebook Javascript</strong>, ναι javascript αλλά περιορισμένο έτσι ώστε να μην μπλέκεται με τα υπόλοιπα και μη δημιουργεί προβλήματα ασφάλειας</li>
+    <li><strong> Mobile - Facebook Platform for Mobile</strong>, βάλτε την εφαρμογή σας σε κινητές συσκευές</li>
+</ul>
+
+<p>Υπάρχουν διάφορες βιβλιοθήκες για τις περισσότερες γλώσσες οπότε η ενσωμάτωση με το Facebook είναι πολύ εύκολη. Όντας Rails developer έχω δουλέψει με το rFacebook αλλά υπάρχουν και ports για php, java, <a class="zem_slink" title=".NET Framework" rel="wikipedia" href="http://en.wikipedia.org/wiki/.NET_Framework">.net</a>, python.</p>
+
+<p>Υπάρχει Facebook development στην Ελλάδα; Η απάντηση είναι ναι και μάλιστα έχουν φτιαχτεί κάποιες από τα πιο δυνατά apps - σημειώστε τις απαιτήσεις σε scalability που απαιτούν οι εφαρμογές αυτές. Αν θα σας ενδιέφερε να δουλέψετε για το ελληνικό γραφείο της <a href="http://www.grebooca.com">Grebooca</a> - Sillicon Valley based ακολουθείστε το σύνδεσμο<a href="http://www.greboca.com"><a href="http://www.grebooca.com"><img width="70%" height="70%" src="http://www.webz.gruploads/2008/10/grebooca.png" alt="" class="alignnone size-medium wp-image-1566" /></a></p>
+</div>
+	</article>
+	
+
+
+</section>
+
+		</section>
+
+
+
+	</div><!-- end wrapper -->
+	<div id="footer">
+		<p class="copy">
+			&copy;2006 - 2012  by <a href="http://lexx.gr">lexx</a> &amp; <a href="https://twitter.com/PanosJee">PanosJee</a>
+		</p>
+
+	</div>
+</div> <!-- end page -->
+
+</body>
+</html>
+

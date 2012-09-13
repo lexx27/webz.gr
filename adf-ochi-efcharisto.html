@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="el-GR">
+<head>
+<meta name="description" content="King of hardcore tech and twisted thoughts" />
+<meta name="keywords" content="Web development, Web design, Web news, Coding, PHP, Technology" />
+<meta name="author" content="Alexander Lingris" />
+<meta name="generator" content="Kudos.gr Engine" />
+<meta charset="UTF-8" />
+<title>Webz | ADF? Όχι ευχαριστώ!</title>
+
+<link rel="stylesheet" type="text/css" href="assets/css/static.css" />
+<link href="assets/img/favicon.ico" rel="shortcut icon" type="image/ico" />
+
+</head>
+<body class="">
+<div id="header">
+	<hgroup>
+		<h1 id="logo"><a href="index.html"><img src="assets/img/logo.png" alt="logo"></a></h1>
+		<h2 id="site_desc">King of hardcore tech and twisted thoughts</h2>
+	</hgroup>
+
+</div>
+		<section id="notice">
+			<p>The King is dead! RIP 2006-2012</p>
+			<span>Ένα μεγάλο ευχαριστώ σε όλη την παρέα</span><br>
+			<span>Περισσότερα στο <a href="http://lexx.gr">lexx.gr</a></span>
+		</section>
+<div id="page">
+
+
+	<div id="wrapper">
+		<section id="main">
+			<h1>ADF? Όχι ευχαριστώ!</h1>			<section id="main">
+	<article  class="post single">
+
+		<p class="meta">27 Feb 2008 by PanosJee</p>
+		<div class="content"><p>
+Ένα από τα πολλά μου στρατιωτικά καθήκοντα πέρα αγγαρείας, καλλιόπης και σκοπέτας είναι και η χρήση του <a href="http://www.oracle.com/technology/products/adf/index.html">ADF</a> (Application Development Framework) της Oracle. Πρόκειται για ένα υπερσύνολο του <a href="http://java.sun.com/javaee/javaserverfaces/">JSF</a> (Java ServerFaces) με πολλά καλούδια της Oracle όπως ενσωματωμένο MVC (Model-View-Controller) χάρη στο Struts αλλά και ORM (object relation mapping) χάρη στο δικό της <a href="http://www.oracle.com/technology/products/ias/toplink/index.html">TopLink</a>. Επίσης συμπεριλαμβάνεται το ADF UIX που δημιουργεί πιο ‘πλούσιο’ περιβάλλον αλλά προσωπικά το βρίσκω απαρχαιωμένο και πολύ άσχημο. Πολλές από αυτές τις λειτουργίες είναι εντελώς custom και φυσικά ‘δεμένα’ στον <a href="http://www.oracle.com/technology/products/jdev/index.html">JDeveloper</a> αλλά η Oracle πρόσφατα κυκλοφόρησε
+το ADF με Open Source άδεια υπό το όνομα <a href="http://oss.oracle.com/trinidad-adf-faces.html">Trinidad</a>.
+</p>
+
+<p>
+Να πούμε εδώ ότι to ADF είναι αρκετά φιλελεύθερο από δεν επιβάλει τη χρήση κάποιας συγκεκριμένης τεχνολογίας σε κανένα επίπεδο. Οπότε στο μοντέλο μπορείτε να έχετε απλά αντικείμενα Java (POJO) ή τα δικά της Entity Beans ή στο επίπεδο εμφάνισης μπορεί να είναι JSP, JSF, JSF + UIX, Swing.
+</p>
+
+<p><a href='http://www.webz.gruploads/2008/02/adf-stack.PNG' title='adf-stack.PNG'><img src='http://www.webz.gruploads/2008/02/adf-stack.PNG' alt='adf-stack.PNG' /></a></p>
+
+<p>
+Μία από τις ενδιαφέροντες χρήσεις για εμένα είναι ότι το ίδιο business logic μπορεί για διεπαφή να έχει είτε web based frotned είτε desktop χάρη στον πελάτη Swing.
+</p>
+
+<p>
+Μερικά από τα πλούσια εργαλεία του JDeveloper και από αυτά ένα από τα πιο εντυπωσιακά είναι η σχεδίαση του control flow σε UML και στη συνέχεια η παραγωγή των αρχείων κώδικά με την κατάλληλη αναμεταξύ τους σύνδεση.
+</p>
+
+<p><a href='http://www.webz.gruploads/2008/02/jdeveloper.PNG' title='jdeveloper.PNG'><img src='http://www.webz.gruploads/2008/02/jdeveloper.PNG' alt='jdeveloper.PNG' /></a></p>
+
+<p>
+Σίγουρα το ADF σε συνδυασμό με το JDeveloper είναι η απόλυτη corporate λύση, αλλά γιατί εγώ να το
+μισώ; Ίσως γιατί
+<ol>
+<li> Εγώ έχω υπόβαθρο σε web development και έχω μάθει να κατευθύνω με το χέρι το
+control flow και να φτιάχνω τα links που ξέρω που θα πάνε και γιατί.</li>
+<li> Γιατί φτιάχνω το layout όπως θέλω με CSS και δε μπλέκω πρώτα με skins και άπειρη XML</li>
+<li> Γιατί μπορώ να φτιάξω όσο πλούσιο περιβάλλον θέλω με όποια Javascript βιβλιοθήκη θέλω</li>
+<li> Γιατί δε θέλω να μπλέκω με χιλιάδες γραμμές XML και αν χρειαστεί αν προσθέσω ή να τροποποιήσω
+μια σελίδα (ξεπερασμένος όρος, ένα view με το αντίστοιχο logic) να πρέπει να αλλάξω όλα τα διαγράμματα
+<li> Γιατί θέλω κάθε εφαρμογή μου να είναι διαφορετική</li>
+<li> Γιατί ξεχνά αυτά που ξέρω αφού τα πάντα είναι proprietary tags είτε για ΗΤΜL, JSF κλπ</li>
+<li> Γιατί για μένα αποτελεί κάτι σαν το Swing παρά web development</li>
+</ol>
+</p>
+
+<p>
+Αν πάλι βέβαια δούλευα απλά σε έναν οργανισμό και απλά θέλαμε να φτιάξουμε το frontend της βάσης δεδομένων μας, χωρίς πολλά φρουφρού και αρώματα και αν η βάση ήταν Oracle με legacy procedures, functions κλπ ε ναι τότε ADF και JDeveloper all the way. Άλλωστε είναι the only way αφού τα Oracle Forms βλέπουν θυμαράκια και το ADF γίνεται η βιτρίνα των δεδομένων.
+</p>
+</div>
+	</article>
+	
+
+
+</section>
+
+		</section>
+
+
+
+	</div><!-- end wrapper -->
+	<div id="footer">
+		<p class="copy">
+			&copy;2006 - 2012  by <a href="http://lexx.gr">lexx</a> &amp; <a href="https://twitter.com/PanosJee">PanosJee</a>
+		</p>
+
+	</div>
+</div> <!-- end page -->
+
+</body>
+</html>
+

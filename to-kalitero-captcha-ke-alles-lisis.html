@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="el-GR">
+<head>
+<meta name="description" content="King of hardcore tech and twisted thoughts" />
+<meta name="keywords" content="Web development, Web design, Web news, Coding, PHP, Technology" />
+<meta name="author" content="Alexander Lingris" />
+<meta name="generator" content="Kudos.gr Engine" />
+<meta charset="UTF-8" />
+<title>Webz | Το καλύτερο CAPTCHA και άλλες λύσεις</title>
+
+<link rel="stylesheet" type="text/css" href="assets/css/static.css" />
+<link href="assets/img/favicon.ico" rel="shortcut icon" type="image/ico" />
+
+</head>
+<body class="">
+<div id="header">
+	<hgroup>
+		<h1 id="logo"><a href="index.html"><img src="assets/img/logo.png" alt="logo"></a></h1>
+		<h2 id="site_desc">King of hardcore tech and twisted thoughts</h2>
+	</hgroup>
+
+</div>
+		<section id="notice">
+			<p>The King is dead! RIP 2006-2012</p>
+			<span>Ένα μεγάλο ευχαριστώ σε όλη την παρέα</span><br>
+			<span>Περισσότερα στο <a href="http://lexx.gr">lexx.gr</a></span>
+		</section>
+<div id="page">
+
+
+	<div id="wrapper">
+		<section id="main">
+			<h1>Το καλύτερο CAPTCHA και άλλες λύσεις</h1>			<section id="main">
+	<article  class="post single">
+
+		<p class="meta">16 Dec 2011 by lexx</p>
+		<div class="content"><p>Δεν θέλω να πιστέψω ότι υπάρχει κάποιος που να μην ξέρει τι είναι το CAPTCHA. Είναι μια όχι τόσο έξυπνη, εντελώς σπαστική, τραγικά θλιβερή λύση σε ένα κλασικό πρόβλημα του διαδικτύου. Έχω ορκιστεί εδώ καιρό να μην χρησιμοποιήσω CAPTCHA σε δικό μου site. Με ευκαιρία την αναδημιουργία του blog μου έπεσα πάνω στο:</p>
+
+<h2>Ajax Fancy Captcha</h2>
+
+<p>To <a href="http://www.webdesignbeach.com/beachbar/ajax-fancy-captcha-jquery-plugin">Ajax Fancy Captcha</a> είναι με διαφορά το πιο έξυπνο και εύχρηστο CAPTCHA που έχω συναντήσει ποτέ μου. Δεν μπορώ να καταλάβω γιατί παρόμοια CAPTCHA δεν έχουν αντικαταστήσει τα κλασικά CAPTCHA με κείμενο.</p>
+
+<p><img src="files/2011/12/16/Selection_041.png" alt="Selection_041.png" title="Selection_041.png" /></p>
+
+<p>Και δεν είναι καν κάτι νέο. Είναι από το 2009 και βάλε! Η εγκατάσταση του απαιτεί βασικές pop γνώσεις ajax.</p>
+
+<p>Το αρνητικό είναι ότι προϋποθέτει τη χρήση <strong>mouse</strong> και <strong>javascript</strong> και πιθανώς να προκαλεί και κάποια άλλα accesibilty προβλήματα. Μάλλον δηλαδή στο κινητό δεν θα παίζει καλά. Όμως στο μεγαλύτερο μέρος των περιπτώσεων θα λειτουργεί. Επίσης στις παραπάνω περιπτώσεις μπορούμε να χρησιμοποιήσουμε το κλασικό καταραμένο CAPTCHA σαν fallback.</p>
+
+<p><strong>update:</strong> Όντως σε Android μόλις το δοκίμασα και δεν παίζει.</p>
+
+<h2>Javascript CAPTCHA</h2>
+
+<p>Μια άλλη καταπληκτική λύση είναι το <a href="http://gatekiller.co.uk/Post/JavaScript_Captcha">Javascript CAPTCHA</a>. Καλύτερα να διαβάστε στο προηγούμενο link αναλυτικά. Πολύ γρήγορα θα πω ότι η συγκεκριμένη λύση κάνει το εξής:</p>
+
+<p>Έχει ένα κρυφό πεδίο με ένα τυχαίο value.</p>
+
+<pre><code>&lt;input name="captcha" value="motherfucker" /&gt;
+</code></pre>
+
+<p>Το Javascript περιμένει μερικά δευτερόλεπτα και μετά αλλάζει ή αδειάζει το value του πεδίου. Έτσι κάνει submit τη φόρμα μόνο εφόσον το πεδίο είναι άδειο. Cool?</p>
+
+<p>Αρνητικό εδώ είναι μόνο ότι δεν θα δουλέψει αν δεν υπάρχει javascript. Fallback solution again.</p>
+
+<p>Αυτή η λύση θα έλεγα πως είναι παραλλαγή του <a href="http://haacked.com/archive/2007/09/11/honeypot-captcha.aspx">Honeypot Method</a>.</p>
+
+<p>Το νόημα του post είναι ότι θα πρέπει να ορκιστείτε να μη χρησιμοποιήσετε CAPTCHA ξανά γιατί υπάρχουν καλύτερες λύσεις! Μην ξεχνάμε βέβαια ότι υπάρχουν μοντέλα χρέωσης που θέλουν να σπάνε τα νεύρα του χρήστη με CAPTCHA και άλλους τρόπους.</p>
+
+<p><img src="files/2011/12/16/Selection_042.png" alt="Selection_042.png" title="Selection_042.png" /></p>
+
+<p>Αλλά αν δεν ανήκει το site σας σε αυτή την κατηγορία και έχετε ακόμα CAPTCHA θα πρέπει να ντρέπεστε.</p>
+
+<p><img src="files/2011/12/16/tumblr_lvh608VdUX1qzma4ho1_500_thumbnail.jpg" alt="tumblr_lvh608VdUX1qzma4ho1_500.jpg" /></p>
+
+<p>src: paperghost.tumblr.com</p>
+
+<p>Αν θέλετε να το ψάξετε περισσότερο θα βρείτε ένα super αναλυτικό κείμενο στο <a href="http://coding.smashingmagazine.com/2011/03/04/in-search-of-the-perfect-captcha/">smashingmagazine.com</a> και ένα στο <a href="http://doteduguru.com/id3038-are-you-human-is-captcha-needed-some-alternatives.html">doteduguru.com</a>.</p>
+
+<p>Αν θέλετε βοήθεια για το Ajax Fancy Captcha μπορώ να σας στείλω. Απλά στείλτε μου email και θα προσπαθήσω να βοηθήσω.</p>
+</div>
+	</article>
+	
+
+
+</section>
+
+		</section>
+
+
+
+	</div><!-- end wrapper -->
+	<div id="footer">
+		<p class="copy">
+			&copy;2006 - 2012  by <a href="http://lexx.gr">lexx</a> &amp; <a href="https://twitter.com/PanosJee">PanosJee</a>
+		</p>
+
+	</div>
+</div> <!-- end page -->
+
+</body>
+</html>
+

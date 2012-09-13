@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="el-GR">
+<head>
+<meta name="description" content="King of hardcore tech and twisted thoughts" />
+<meta name="keywords" content="Web development, Web design, Web news, Coding, PHP, Technology" />
+<meta name="author" content="Alexander Lingris" />
+<meta name="generator" content="Kudos.gr Engine" />
+<meta charset="UTF-8" />
+<title>Webz | Μισώ τους WYSIWYG editors!</title>
+
+<link rel="stylesheet" type="text/css" href="assets/css/static.css" />
+<link href="assets/img/favicon.ico" rel="shortcut icon" type="image/ico" />
+
+</head>
+<body class="">
+<div id="header">
+	<hgroup>
+		<h1 id="logo"><a href="index.html"><img src="assets/img/logo.png" alt="logo"></a></h1>
+		<h2 id="site_desc">King of hardcore tech and twisted thoughts</h2>
+	</hgroup>
+
+</div>
+		<section id="notice">
+			<p>The King is dead! RIP 2006-2012</p>
+			<span>Ένα μεγάλο ευχαριστώ σε όλη την παρέα</span><br>
+			<span>Περισσότερα στο <a href="http://lexx.gr">lexx.gr</a></span>
+		</section>
+<div id="page">
+
+
+	<div id="wrapper">
+		<section id="main">
+			<h1>Μισώ τους WYSIWYG editors!</h1>			<section id="main">
+	<article  class="post single">
+
+		<p class="meta">19 Dec 2011 by lexx</p>
+		<div class="content"><p>Το μεγαλύτερο ποσοστό του διαδικτίου παράγει περιεχόμενο μέσω ενός WYSIWYG. Αυτό είναι μαλακία. Δεν ξέρω αν υπάρχει καλύτερη λύση, δεν με νοιάζει. Ξέρω ότι η παρούσα λύση δεν είναι ικανοποιητική.</p>
+
+<p>Ξεκαθαρίζω ότι σε αυτό το post μιλάω για WYSIWYG που χρησιμοποιούμε για να γράφουμε άρθρα σε CMS και Blog. Όχι dreamweaver και παρόμοια (επίσης τραγικά).</p>
+
+<h2>Για noobs</h2>
+
+<blockquote>
+  <p>WYSIWYG is an acronym for What You See Is What You Get.</p>
+</blockquote>
+
+<p>με εικόνα:</p>
+
+<p><img src="files/2011/12/19/Selection_043.png" alt="Selection_043.png" title="Selection_043.png" /></p>
+
+<p>Οι editors αυτοί δημιουργήθηκαν κατ' εικόνα και καθ' ομοίωσιν του MS Word - που όλοι οι άνθρωποι ξέρουν να χειρίζονται. Έτσι γεφύρωσαν το χάσμα ανάμεσα στον άνθρωπο και την html. Ακόμα και κάποιος που ξέρει html δεν θα ήθελε να γράφει τα κείμενα του με html. Είναι πολύ βαρετό.</p>
+
+<h2>Γιατί είναι μαλακία για τον χρήστη;</h2>
+
+<p>Στην ιδέα, αυτοί οι editors είναι πολύ καλοί. Γράφεις σαν να γράφεις στο Word που το ξέρεις από τότε που έκανες την πρώτη σου εργασία στο σχολείο και αυτό αναλαμβάνει να γράψει τον απαραίτητο html κώδικα.</p>
+
+<p>Ε αυτό δεν συμβαίνει έτσι ακριβώς. Οι πελάτες μου που δεν είναι εξοικειωμένοι με το διαδίκτυο τα κάνουν όλα μπουρδέλο αν τους αφήσεις μόνους τους στον Tinymce για πάνω από 10 δευτερόλεπτα. Δεν συζητάμε για το copy paste!</p>
+
+<blockquote>
+  <p>What I failed to realize at the time is that "the best WYSIWYG editor" is like saying "the best politician", in that it is the "least worse" of a flawed solution. - <a href="http://albertbori.com/why-wysiwyg-editors-suck" title="Why WYSIWYG Editors Suck">Albert Bori</a></p>
+</blockquote>
+
+<p>Ακόμα και τα 10 plugins που χρειάζεται να χρησιμοποιήσεις για να γίνει δουλειά, όπως τα <strong>copy from word</strong> ή το <strong>remove format</strong>, δεν λειτουργούν όπως θα περίμενες. Και γενικά, τίποτα δεν λειτουργεί όπως θα περίμενες. Προσωπικά όταν γράφω σε WYSIWYG νιώθω μια διαρκή 
+ανασφάλεια για τη δομή του κειμένου μου.</p>
+
+<h2>Γιατί είναι μαλακία για το μηχάνημα;</h2>
+
+<p>Πέρα λοιπόν από τη δυσχρηστία τους, ένα άλλο τραγικό είναι ότι παράγουν πολύ κακό <strong>html κώδικα</strong>, κενά p tags, κενά div και ότι άλλο σκουπίδι παρασύρουν οι συντάκτες κατά τη συγγραφή. Αυτό αυξάνει δραματικά τις πιθανότητες η τελική σελίδα να έχει <strong>html validation errors</strong>, δηλαδή να χαλάσει η δομή του <strong>Dom tree</strong>, που έχει ως αποτέλεσμα να κάνει κακό στο <strong>SEO</strong> και στην ταχύτητα που ανοίγει η σελίδα, που έχει ως αποτέλεσμα να πάνε όλοι οι κόποι του developer στα σκουπίδια. Εντάξει μακάρι να είναι αυτά τα προβλήματα μας στη ζωή αλλά καταλαβαίνετε που το πάω.</p>
+
+<p>Όλα αυτά είναι λογικά όταν ζητάς από ένα πρόγραμμα να δίνει πολλές δυνατότητες (tables, image resize, font color) αλλά να παράγει αυστηρό κώδικα (no spans and divs). Ή να παίρνει πρωτοβουλία σε κάποια ζητήματα (ναι κι άλλο bullet) και να μην παίρνει σε κάποια άλλα (όχι άλλο γαμημένο bullet αααααα! βάλε bold, φτάνει, back, undo, που πήγε το bold αααααααα!).</p>
+
+<h2>Λύση στο μέγα πρόβλημα του input;</h2>
+
+<p>Δεν έχω καμία ιδέα για το τι θα έκανε καλύτερους τους WYSIWYG. Εδώ στο Webz έχω βάλει τον <a href="http://markitup.jaysalvat.com/" title="">markitup</a> editor και γράφουμε με <a href="http://en.wikipedia.org/wiki/Markdown" title="">markdown</a>. Το markdown είναι πολύ πιο βολικό.</p>
+
+<ul>
+<li>Αρχικά επειδή δεν είναι WYSIWYG. Είναι σκέτο κείμενο. Δεν μπορείς να κάνεις μαλακία όσο και να προσπαθείς. </li>
+<li>Υποστηρίζει τα περισσότερα πράγματα που θα θες να κάνεις σε ένα κείμενο. Αλλά αν κάτι δεν το υποστηρίζει μπορείς να το κάνεις με html καθώς δεν έχει πρόβλημα μαζί της. </li>
+<li>Μπορείς να κάνεις copy paste τα πάντα και θες δεν θες σκάνε unformatted.</li>
+<li>Δεν χρειάζεται καν editor για να γράψεις markdown αλλά βολεύει σε κάποια πραγματάκια να έχεις. </li>
+</ul>
+
+<p>Για τους πελάτες μπορεί στην αρχή να είναι λίγο παράξενό όταν θα πρέπει να κάνουμε αυτό για να έχουν bold:</p>
+
+<pre><code>**bold**
+</code></pre>
+
+<p>Αλλά πραγματικά το learning curve είναι αστείο και πολύ μικρότερο από το πραγματικό learning curve ενός WYSIWYG. Φαινομενικά στην αρχή οι WYSIWYG φαίνονται απλοί αλλά στην πορεία αλλάζει αυτό.</p>
+
+<p>Shift+enter για μια απλή γραμμή; Go away...</p>
+</div>
+	</article>
+	
+
+
+</section>
+
+		</section>
+
+
+
+	</div><!-- end wrapper -->
+	<div id="footer">
+		<p class="copy">
+			&copy;2006 - 2012  by <a href="http://lexx.gr">lexx</a> &amp; <a href="https://twitter.com/PanosJee">PanosJee</a>
+		</p>
+
+	</div>
+</div> <!-- end page -->
+
+</body>
+</html>
+

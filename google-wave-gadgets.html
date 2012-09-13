@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="el-GR">
+<head>
+<meta name="description" content="King of hardcore tech and twisted thoughts" />
+<meta name="keywords" content="Web development, Web design, Web news, Coding, PHP, Technology" />
+<meta name="author" content="Alexander Lingris" />
+<meta name="generator" content="Kudos.gr Engine" />
+<meta charset="UTF-8" />
+<title>Webz | Google Wave Gadgets</title>
+
+<link rel="stylesheet" type="text/css" href="assets/css/static.css" />
+<link href="assets/img/favicon.ico" rel="shortcut icon" type="image/ico" />
+
+</head>
+<body class="">
+<div id="header">
+	<hgroup>
+		<h1 id="logo"><a href="index.html"><img src="assets/img/logo.png" alt="logo"></a></h1>
+		<h2 id="site_desc">King of hardcore tech and twisted thoughts</h2>
+	</hgroup>
+
+</div>
+		<section id="notice">
+			<p>The King is dead! RIP 2006-2012</p>
+			<span>Ένα μεγάλο ευχαριστώ σε όλη την παρέα</span><br>
+			<span>Περισσότερα στο <a href="http://lexx.gr">lexx.gr</a></span>
+		</section>
+<div id="page">
+
+
+	<div id="wrapper">
+		<section id="main">
+			<h1>Google Wave Gadgets</h1>			<section id="main">
+	<article  class="post single">
+
+		<p class="meta">28 Sep 2009 by PanosJee</p>
+		<div class="content"><p>Guest post από τον <em>web front developer</em> <a target="_blank" href="http://savvas.me" title="Σάββας Γεωργίου">Σάββα Γεωργίου.</a> Συνεχίζοντας την αναφορά στις νέες τεχνολογίες αυτού του καλοκαιριού, και όπως είχαμε <a href="http://www.webz.gr/?p=2362" title="υποσχεθεί" id="nx.4">υποσχεθεί</a>, θα αναλύσουμε τα βασικά ενός <a href="http://code.google.com/intl/el-GR/apis/wave/extensions/gadgets/guide.html">Google Wave Gadget</a>.  To wave gadget, είναι μία client side εφαρμογή που μπορεί να προσθέσει ένας συμμετέχων στην συνομιλία και γίνεται αυτόματα διαθέσιμη σε όλους. Σκοπός των gadgets είναι να εμπλουτίσουν την συνομιλία με χάρτες, documents, παιχνίδια και οποιαδήποτε άλλη εφαρμογή στην οποία έχει νόημα το real-time collaboration των συνομιλητών.  Πρακτικά ένα wave gadget μοιάζει πολύ, για όσους έχουν ασχοληθεί, με το open social gadget. Δεν είναι τίποτα άλλο από ένα xml αρχείο, με ένα μέρος καθαρής html και με δυνατότητα κλήσης stylesheet και javascript. Ένα τυπικό παράδειγμα είναι το εξής:</p>
+
+<pre><code>&lt;xml version="1.0"; encoding="UTF-8" ?&gt;
+
+&lt;Module&gt;
+
+&lt;ModulePrefs title="Hello Wave from Webz"&gt;
+
+&lt;Require feature="wave" /&gt;
+
+&lt;/ModulePrefs&gt;
+
+&lt;Content type="html"&gt;
+
+&lt;![CDATA[
+
+&lt;head&gt;
+
+&lt;script src="http://www.google.com/jsapi"&gt;&lt;/script&gt;
+
+&lt;script type="text/javascript" charset="utf-8"&gt;
+
+  google.load("jquery", "1.3.2");
+
+&lt;/script&gt;
+
+&lt;link rel="stylesheet" href="http://gamewave.googlecode.com/svn/trunk/stylesheets/screen.css" type="text/css" media="screen" charset="utf-8"&gt;
+
+&lt;body&gt;
+
+Hello from my gadget!
+
+&lt;/body&gt;
+
+]]&gt;   
+
+&lt;/Content&gt;
+
+&lt;/Module&gt;
+</code></pre>
+
+<p><span style="font-family: mceinline;"><em>(To wordpress δεν μπορούσε να δείξει σωστά XML &nbsp;με το tag code &nbsp;οπότε το απότελεσμα δεν είναι βέλστιστο)</em></span>  Παρατηρώντας την δομή του παραπάνω αρχείου, βλέπουμε ότι στο xml κομμάτι ουσιαστικά ορίζουμε μόνο τίτλο και το default feature που θέλουμε, δηλαδή το wave. Μέσα στο  γράφουμε xhtml κώδικα όπως για ένα οποιοδήποτε website. Παρατηρείστε ακόμη ότι το link προς το stylesheet δεν είναι relative αλλά στατικό. Για να χρησιμοποιείτε relative κλήσεις προς άλλα αρχεία ρίξτε μια ματιά στο Preload module του gadget API.  Ερχόμαστε λοιπόν στην ουσία του wave gadget και στον τρόπο που η html-javascript εφαρμογή μας, μπορεί να γίνει real-time collaborative. Όλο το &quot;μυστικό&quot; κρύβεται στο javascript αντικείμενο wave που μετά την κλήση  είναι διαθέσιμο στον κώδικά μας. H λογική είναι απλή. Το wave έχει μία κατάσταση (state) η οποία μπορεί να αλλάξει για δύο κυρίως λόγους: είτε επειδή κάποιος νέος συνομιλητής μπήκε στην συζήτηση, είτε επειδή κάποιος συνομιλητής αποθήκευσε κάτι στο wave. Για κάθε περίπτωση, ορίζουμε μία callback συνάρτηση, η οποία καλείται σε όλους τους clients κάθε φορά που ολοκληρώνεται μία αλλαγή στο state του wave. Με αυτό τον τρόπο, οι &quot;κινήσεις&quot; του κάθε συνομιλητή, μπορούν μέσω της stateCallback να φτάσουν σε όλους τους συνομιλητές.  <img width="522" height="424" alt="picture-2" src="http://www.webz.gruploads/2009/09/picture-2.png" class="alignnone size-full wp-image-2386" />  Αρχίζουμε ορίζοντας τις συναρτήσεις για τα δύο συμβάντα που αναφέραμε.  <code> function init() { if (wave &amp;&amp; wave.isInWaveContainer()) { wave.setStateCallback(stateChanged); wave.setParticipantCallback(participantChanged); } } </code>  Τώρα δεν μένει τίποτα άλλο παρά να ορίσουμε τις συναρτήσεις stateChanged() και participantChanged(). Κάποιες από τις βασικότερες λειτουργίες του αντικειμένου wave είναι</p>
+
+<ul>
+    <li><strong>wave.getParticipants()</strong> // Επιστρέφει τον πίνακα όλων των συνομιλητών</li>
+    <li><strong>wave.getParticipants().getId</strong> //Για τον κάθε συνομιλητή του παραπάνω πίνακα φέρνει το μοναδικό id του [πχ savvas@wavesandbox.com]</li>
+    <li><strong>wave.getParticipants().getThumbnailUrl</strong> // Για τον κάθε συνομιλητή φέρνει το url της  thumbanail εικόνας του</li>
+    <li><strong>wave.getViewer().getId(</strong><strong>)</strong> // Επιστρέφει μοναδικό id του συγκεκριμένου συνομιλητή που βλέπει αυτό το gadget , δηλαδή το δικό σου id.</li>
+    <li><strong>wave.getState().submitDelta(delta);</strong> //Αποθηκεύει ένα ζευγάρι key - value στο wave. Υπενθυμίζουμε ότι αυτή η κλήση, επειδή αλλάζει το state του wave καλεί την stateChanged() για όλους τους συνομιλητές.</li>
+</ul>
+
+<p>Για να γίνει πιο κατανοητό, το πως  αποθηκεύουμε στο wave και ενημερώνονται όλοι οι συνομιλητές, σκεφτείτε το παρακάτω σενάριο: Σε ένα παιχνίδι, ο κάθε συνομιλητής - παίχτης, κάνει κάποια στιγμή submit το score του. Θέλουμε όλοι οι συνομιλητές, να βλέπουν τα ενημερωμένα scores όλων των συμπαιχτών τους, ανα πάσα στιγμή.  Έχουμε λοιπόν την  <code> function updateScore(points) { var gamerId = wave.getViewer().getId(); delta = {}; delta[gamerId] = points; wave.getState().submitDelta(delta); } </code>  η οποία αποθηκεύει το score του παίχτη, με key το προσωπικό του id. Κάθε φορά που κάποιος αποθηκεύει στο wave το updated score του, καλείται σε όλους η stateChanged που φροντίζει να εμφανίσει τα updated scores.  <code> function stateChanged() { if (!wave.getState()) { return; } var participants = wave.getParticipants(); if (participants) { for (var i = 0; i &lt; participants.length; ++i) { var participant = participants[i]; var participant_score = wave.getState().get(getGamerId(participants[i]); // render current score of current participant } } </code>  Εδώ τελειώνει η πρώτη μας επαφή με το wave gadget και ταυτόχρονα και το πρώτο μου guest post στο webz. Άν κάποιος ενδιαφέρεται περισσότερο για ανάπτυξη wave gadget, υπάρχει ένα αρκετά πλήρες tutorial από την google. Για την ιστορία, στο 3ήμερο hackathlon για wave - development, φτιάξαμε με τον Γιώργο το gamewave, ένα gadget που δημιουργεί ένα live battlefield για ένα flash game, όπου οι συνομιλητές παίζουν ταυτόχρονα το παιχνίδι και συναγωνίζονται με το current score τους. Ο κώδικας είναι εδώ <a href="http://code.google.com/p/gamewave/source/checkou">http://code.google.com/p/gamewave/source/checkout</a> και για όποιον έχει wave account μπορεί να το κάνει embed και να παίξει από την διεύθυνση <a href="http://tinyurl.com.gamewave">http://tinyurl.com/gamewave</a>.</p>
+</div>
+	</article>
+	
+
+
+</section>
+
+		</section>
+
+
+
+	</div><!-- end wrapper -->
+	<div id="footer">
+		<p class="copy">
+			&copy;2006 - 2012  by <a href="http://lexx.gr">lexx</a> &amp; <a href="https://twitter.com/PanosJee">PanosJee</a>
+		</p>
+
+	</div>
+</div> <!-- end page -->
+
+</body>
+</html>
+

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="el-GR">
+<head>
+<meta name="description" content="King of hardcore tech and twisted thoughts" />
+<meta name="keywords" content="Web development, Web design, Web news, Coding, PHP, Technology" />
+<meta name="author" content="Alexander Lingris" />
+<meta name="generator" content="Kudos.gr Engine" />
+<meta charset="UTF-8" />
+<title>Webz | Παρουσίαση των Amazon Web Services</title>
+
+<link rel="stylesheet" type="text/css" href="assets/css/static.css" />
+<link href="assets/img/favicon.ico" rel="shortcut icon" type="image/ico" />
+
+</head>
+<body class="">
+<div id="header">
+	<hgroup>
+		<h1 id="logo"><a href="index.html"><img src="assets/img/logo.png" alt="logo"></a></h1>
+		<h2 id="site_desc">King of hardcore tech and twisted thoughts</h2>
+	</hgroup>
+
+</div>
+		<section id="notice">
+			<p>The King is dead! RIP 2006-2012</p>
+			<span>Ένα μεγάλο ευχαριστώ σε όλη την παρέα</span><br>
+			<span>Περισσότερα στο <a href="http://lexx.gr">lexx.gr</a></span>
+		</section>
+<div id="page">
+
+
+	<div id="wrapper">
+		<section id="main">
+			<h1>Παρουσίαση των Amazon Web Services</h1>			<section id="main">
+	<article  class="post single">
+
+		<p class="meta">26 Nov 2008 by PanosJee</p>
+		<div class="content"><p>Δεν πάει πολύ καιρός από πρώτο <a href="http://opencoffee.gr/2008/10/20/1st-amazon-web-services-athens-meet-up/">meetup για τα Amazon Web Services</a> που παρουσίασε ο <a href="http://www.john-nousis.com/">Γιάννης</a> και σύντομα στην Grebooca βαλθήκαμε να χρησιμοποιήσουμε τις υπηρεσίες αυτές. Ομολογώ ότι δεν είχα καταλάβει ακριβώς περί τίνος πρόκειται οπότε θα σας κάνω και μια μικρή παρουσίαση αυτών των υπηρεσιών.</p>
+
+<p>Ας αρχίσουμε με τα απλά. Η δημιουργία λογαριασμού στο Amazon είναι δωρεάν. Από εκεί και πέρα προσφέρονται διαφορετικές υπηρεσίες όπως EC2, S3, EBS, SimpleDB, DevPay, Mechanical Turk. Εμάς θα μας απασχολήσουν μόνο οι 4 πρώτες.</p>
+
+<h2>Για να δούμε όμως περί τίνος πρόκειται:</h2>
+
+<h3><a href="http://aws.amazon.com/s3/">S3</a> ή αλλιώς Simple Storage System</h3>
+
+<p>Στην ουσία πρόκειται για αποθηκευτικό χώρο τον οποίο πληρώνεις για το μέγεθος που καταλαμβάνεις και το πόσες φορές διαβάζεις ή γράφεις σε αυτόν. Οι χρεώσεις είναι εξαιρετικά <strong>χαμηλές </strong>και αποτελεί από τη μία καλή λύση για backup και από την άλλη ένα μέρος με αρκετό αποθηκευτικό χώρο αν θέλετε οι χρήστες να ανεβάζουν αρχεία αλλά και μια μορφή CDN αφού το S3  αναλαμβάνει το σερβίρισμα των αρχείων.</p>
+
+<p><a href="http://www.webz.gruploads/2008/11/s3.png"><img src="http://www.webz.gruploads/2008/11/s3-371x350.png" alt="" width="371" height="350" class="alignnone size-medium wp-image-1849" /></a></p>
+
+<h3><a href="http://aws.amazon.com/ec2/">EC2</a> ή αλλιώς Elastic Computing Cloud</h3>
+
+<p>Εν τάχει πρόκειται για Virtual Private Server πάνω σε XEN. Μπορούμε να επιλέξουμε μεταξύ διαφορικών προγραμμάτων ανάλογα με την ισχύ που χρειαζόμαστε. Μέχρι στιγμής τίποτα το εντυπωσιακό. Το εντυπωσιακό είναι ότι δημιουργήσουμε ένα τέτοιο μηχάνημα μπορούμε ανά πάσα στιγμή να το <strong>κλωνοποιήσουμε </strong>έχοντας 1 ή περισσότερα να εξυπηρετούν τις ανάγκες μας ή ένα μεγαλύτερα όσο αφορά τις ανάγκες υπολογισμού.</p>
+
+<p>Το ακόμα καλύτερο είναι ότι μέσω ειδικών προγραμμάτων μπορούν να προστείθονται δυναμικά servers όταν υπάρχει μεγάλη κίνηση στην εφαρμογή μας (πληρώνουμε για το κάθε <acronym title="Virtual Private Server">VPS</acronym> ανά ώρα λειτουργίας) και αφαιρούνται όταν δεν χρειάζονται (οπότε πληρώνουμε ανάλογα με τις τρέχουσες ανάγκες). Μπορούμε να διαλέξουμε από μια πλειάδα έτοιμων VPS που ονομάζονται <acronym title="Amazon Machine Image">AMI</acronym>.  Θα βρούμε Linux, OpenSolaris, BSD, Windows  καθώς και όλα τα δημοφιλή προγράμματα από Ruby On Rails σε Oracle Databases (με υψηλότερο κόστος φυσικά).</p>
+
+<p><a href="http://www.webz.gruploads/2008/11/amis.png"><img src="http://www.webz.gruploads/2008/11/amis-470x333.png" alt="" width="470" height="333" class="alignnone size-medium wp-image-1847" /></a></p>
+
+<h3>EBS ή αλλιώς Elastic Block Service</h3>
+
+<p>Όλα καλά με το EC2 αλλά κάτι θα πρέπει να πηγαίνει λάθος σωστά; Σωστά! Από τη στιγμή που ανά πάσα στιγμή μπορούμε να σηκώσουμε ένα AMI από τις μνήμες του  Αmazon αυτό εύλογα συνάγεται ότι δεν έχει μνήμη και εννοώ πχ ότι αποθηκεύσουμε στο τρέχον VPS δε θα υπάρχει σε ένα καινούριο. Αυτό ξεπερνιέται είτε κάνοντας bundle και register το AMI που χρησιμοποιούμε είτε κάνοντας mount ένα Elastic δίσκο που βρίσκεται στο data center. Το καλύτερο βέβαια είναι ότι ζητάμε όσους δίσκους θέλουμε, ότι μέγεθος και οπότε θέλουμε ακόμα και μέσα από plugin του Firefox.</p>
+
+<p><a href="http://www.webz.gruploads/2008/11/ebs.png"><img src="http://www.webz.gruploads/2008/11/ebs.png" alt="" width="434" height="162" class="alignnone size-medium wp-image-1848" /></a></p>
+
+<h3><a href="http://aws.amazon.com/simpledb/">SimpleDB</a> ή αλλιώς SimpleDB</h3>
+
+<p>Πρόκειται για ένα API βασικά πάνω στο S3 η οποία μας επιτρέπει να κάνουμε κάποια queries πάνω σε αντικείμενα που αποθηκεύονται στο S3, fault tolerant, κατανεμημένα και schema free... Χμμμ υπάρχει και Open Source κλώνος με το όνομα CouchDB, πολλά υποσχόμενο και θα το μελετήσουμε σε άλλο post</p>
+
+<h2>Firefox to the rescue</h2>
+
+<p>Η όλη πλατφόρμα είναι προσβάσιμη μέσω ενός ΑΡΙ και το βασικά interface δεν είναι άλλο από γραμμές εντολές υπάρχουν όμως πολλά 3rd party tools να σας βοηθήσουν και θεωρώ ένα από τα καλύτερα το plugin του Firefox, <a href="http://developer.amazonwebservices.com/connect/entry.jspa?externalID=609">Elasticfox</a></p>
+
+<h2>Εν κατακλείδι</h2>
+
+<p>Φυσικά συνδεόμαστε σε κάθε EC2 με κονσόλα ή remote desktop για τους Windows φίλους. Τα συστήματα είναι απόλυτα παραμετροποιήσιμα και διαθέσιμα ανά πάση στιγμή. Πολλά μεγάλα πράγματα μπορούν να στηθούν σχετικά εύκολα χρησιμοποιώντας αυτή την υποδομή. Δε θα συνεχίσω άλλο μιας και εγώ είμαι newbie αλλά θα ήθελα τις ερωτήσεις και τα σχόλια σας!</p>
+</div>
+	</article>
+	
+
+
+</section>
+
+		</section>
+
+
+
+	</div><!-- end wrapper -->
+	<div id="footer">
+		<p class="copy">
+			&copy;2006 - 2012  by <a href="http://lexx.gr">lexx</a> &amp; <a href="https://twitter.com/PanosJee">PanosJee</a>
+		</p>
+
+	</div>
+</div> <!-- end page -->
+
+</body>
+</html>
+

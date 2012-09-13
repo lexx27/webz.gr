@@ -1,0 +1,93 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1253">
+<title>Fluid width 3 column site- Demo</title>
+<style type="text/css">
+	body{
+		font-size:11px;
+		font-family:Verdana, Geneva, sans-serif;
+		text-align:center;
+	}
+	#container{
+		border:1px solid #000;
+		padding:5px;
+		height:500px;
+	}
+	#left-column{
+		float:left;
+		background-color:#EFEFEF;
+		width:200px;
+		height:500px;
+		text-align:left;
+	}
+	#right-column{
+		float:right;
+		background-color:#EFEFEF;
+		width:200px;
+		height:500px;
+		text-align:right;
+	}
+	#main-area{
+		overflow:hidden; /*clears floats of inner divs*/
+	}
+	
+	#left-static{
+		overflow:hidden;/*clears floats of inner divs*/
+		margin:5px;
+		border:1px solid #333;
+	}
+	#left-static .static{
+		float:left;
+		width:100px;
+		height:100px;
+		background-color:#CCC;
+	}
+	
+	#right-static{
+		overflow:hidden;/*clears floats of inner divs*/
+		margin:5px;
+		border:1px solid #333;
+	}
+	#right-static .static{
+		float:right;
+		width:100px;
+		height:100px;
+		background-color:#CCC;
+	}
+</style>
+</head>
+
+<body>
+
+<strong>Full Site Width: 100%;</strong>
+<div id="container">
+	<div id="left-column">
+  	Left Static Column (floated left)
+  </div>
+	<div id="right-column">
+		Right Static Column (floated right,<br>"right-column" div before "main-area" div on DOM)
+  </div>
+	<div id="main-area">
+  	Inner fluid area
+  	<div id="left-static">
+      <div class="static">
+      	Left Static Area (floated left)
+      </div>
+      <div class="fluid">
+      	Fluid Area (not floated)
+      </div>
+    </div>
+    <div id="right-static">
+      <div class="static">
+      	Right Static Area (floated right,<br>"static" div before "fluid" div on DOM)
+      </div>
+      <div class="fluid">
+      	Fluid Area (not floated)
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

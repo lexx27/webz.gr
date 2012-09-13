@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="el-GR">
+<head>
+<meta name="description" content="King of hardcore tech and twisted thoughts" />
+<meta name="keywords" content="Web development, Web design, Web news, Coding, PHP, Technology" />
+<meta name="author" content="Alexander Lingris" />
+<meta name="generator" content="Kudos.gr Engine" />
+<meta charset="UTF-8" />
+<title>Webz | PHP Speedy - aggregate & compress Wordpress</title>
+
+<link rel="stylesheet" type="text/css" href="assets/css/static.css" />
+<link href="assets/img/favicon.ico" rel="shortcut icon" type="image/ico" />
+
+</head>
+<body class="">
+<div id="header">
+	<hgroup>
+		<h1 id="logo"><a href="index.html"><img src="assets/img/logo.png" alt="logo"></a></h1>
+		<h2 id="site_desc">King of hardcore tech and twisted thoughts</h2>
+	</hgroup>
+
+</div>
+		<section id="notice">
+			<p>The King is dead! RIP 2006-2012</p>
+			<span>Ένα μεγάλο ευχαριστώ σε όλη την παρέα</span><br>
+			<span>Περισσότερα στο <a href="http://lexx.gr">lexx.gr</a></span>
+		</section>
+<div id="page">
+
+
+	<div id="wrapper">
+		<section id="main">
+			<h1>PHP Speedy - aggregate & compress Wordpress</h1>			<section id="main">
+	<article  class="post single">
+
+		<p class="meta">15 Apr 2008 by lexx</p>
+		<div class="content"><p>Εγκατέστησα και τώρα γράφω για ένα plugin το οποίο θα κάνει πολύ πιο γρήγορο το blog σας.</p>
+
+<p>Μια από τις εκκρεμότητες του v4 ήταν να περιορίσουμε λίγο τα loading times του WEBZ μιας και έχει αρχίσει να έχει αρκετά javascript και CSS. Την λύση βρήκα σε ένα φρέσκο και λίγο κρυμμένο plugin(γιατί δεν είναι στο wordpress.org).</p>
+
+<p>Πριν πάρετε κάποια απόφαση θα σας πρότεινα να διαβάσετε το άρθρο που είχα γράψει: "<a href="http://www.webz.gr/2008/03/03/%ce%ba%ce%ac%ce%bd%ce%b5-%cf%84%ce%bf-wordpress-blog-%cf%83%ce%bf%cf%85-%ce%bd%ce%b1-%cf%86%ce%bf%cf%81%cf%84%cf%8e%ce%bd%ce%b5%ce%b9-%cf%80%ce%b9%ce%bf-%ce%b3%cf%81%ce%ae%cf%81%ce%bf%cf%81%ce%b1/">Κάνε το Wordpress Blog σου να φορτώνει πιο γρήγορα</a>".</p>
+
+<p><a href="http://www.webz.gruploads/2008/04/php_speedy_logo_medium.gif"><img class="alignnone size-medium wp-image-841" title="php_speedy_logo_medium" src="http://www.webz.gruploads/2008/04/php_speedy_logo_medium.gif" alt="" width="299" height="91" /></a></p>
+
+<h2>PHP Speedy</h2>
+
+<p>Το <a href="http://aciddrop.com/php-speedy/">PHP Speedy</a> αρχικά ξεκίνησε σαν ένα script το οποίο κάνει aggregate και compress τα html, js και css αρχεία μιας σελίδας. Μην τρομάζετε, θα εξηγήσω.</p>
+
+<p>Όταν λέω <strong>aggregate </strong>εννοώ ότι αν έχετε 5 javascript αρχεία, το πρόγραμμα θα τα συμμαζέψει όλα σε ένα αρχείο. Το αποτέλεσμα θα είναι να μειωθούν τα HTTP Requests. Ένας από τους βασικούς τρόπους για να γίνει μια σελίδα πιο "ελαφριά".</p>
+
+<p>Όταν λέω <strong>compress </strong>εννοώ ότι το πρόγραμμα "τρώει" όλα τα κενά μέσα στο κάθε αρχείο με αποτέλεσμα να μικραίνει το filesize τους.</p>
+
+<p>Ξεκίνησα βιαστικά να το εγκαθιστώ και ευτυχώς μέχρι να ανέβουν τα αρχεία στο ftp είδα ότι τον Μάρτιο που πέρασε είχε δημιουργηθεί ειδικό <a href="http://aciddrop.com/2008/03/22/php-speedy-wordpress-plugin-version-04/">plugin για το Wordpress</a>. Συμβατό μάλιστα με το 2.5. Τρέχει ήδη στο WEBZ.</p>
+
+<p>H εγκατάσταση είναι η κλασική όπως σε κάθε Wordpress Plugin. Οι οδηγίες στην παραμετροποίηση είναι αναλυτικές και λογικά δεν θα αντιμετωπίσετε κάποιο πρόβλημα. Αφήνω μόνο ένα ερωτηματικό για το πόσο αυτή η διαδικασία επιβαρύνει των server. Θα το μάθω σύντομα και θα σας ενημερώσω.</p>
+
+<p>15.4.08 edit:</p>
+
+<p>Αντιμετώπισα πρόβλημα με τον Safari ο οποίος δεν έβρισκε το style. Κάτι με τα meta θα είναι λογικά το θέμα.</p>
+
+<p>Επίσης το wp-polls δεν δούλευε. Κάποιο πρόβλημα λογικά με το javascript του ajax.</p>
+
+<p>Το απενεργοποίησα προς το παρόν και θα ενημερώσω με εξελίξεις.</p>
+</div>
+	</article>
+	
+
+
+</section>
+
+		</section>
+
+
+
+	</div><!-- end wrapper -->
+	<div id="footer">
+		<p class="copy">
+			&copy;2006 - 2012  by <a href="http://lexx.gr">lexx</a> &amp; <a href="https://twitter.com/PanosJee">PanosJee</a>
+		</p>
+
+	</div>
+</div> <!-- end page -->
+
+</body>
+</html>
+

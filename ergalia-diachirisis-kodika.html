@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="el-GR">
+<head>
+<meta name="description" content="King of hardcore tech and twisted thoughts" />
+<meta name="keywords" content="Web development, Web design, Web news, Coding, PHP, Technology" />
+<meta name="author" content="Alexander Lingris" />
+<meta name="generator" content="Kudos.gr Engine" />
+<meta charset="UTF-8" />
+<title>Webz | Εργαλεία διαχείρισης κώδικα</title>
+
+<link rel="stylesheet" type="text/css" href="assets/css/static.css" />
+<link href="assets/img/favicon.ico" rel="shortcut icon" type="image/ico" />
+
+</head>
+<body class="">
+<div id="header">
+	<hgroup>
+		<h1 id="logo"><a href="index.html"><img src="assets/img/logo.png" alt="logo"></a></h1>
+		<h2 id="site_desc">King of hardcore tech and twisted thoughts</h2>
+	</hgroup>
+
+</div>
+		<section id="notice">
+			<p>The King is dead! RIP 2006-2012</p>
+			<span>Ένα μεγάλο ευχαριστώ σε όλη την παρέα</span><br>
+			<span>Περισσότερα στο <a href="http://lexx.gr">lexx.gr</a></span>
+		</section>
+<div id="page">
+
+
+	<div id="wrapper">
+		<section id="main">
+			<h1>Εργαλεία διαχείρισης κώδικα</h1>			<section id="main">
+	<article  class="post single">
+
+		<p class="meta">12 Jun 2009 by PanosJee</p>
+		<div class="content"><p>Γεια σας μετά από μακρόχρονη απουσία από το Webz, ελπίζω να σας έλειψα λίγο και πιστεύω με την επιστροφή μου να μοιραστώ πολλά από τα πράγματα που έμαθα τελευταία.</p>
+
+<p>Σε αυτό το ποστ θα κάνουμε λόγο για το Source Control ή αλλιώς <a title="Revision Control at Wikipedia" href="http://en.wikipedia.org/wiki/Revision_control" target="_blank">Revision Control</a>. Όσοι έχετε δουλέψει σαν προγραμματιστές στα πλαίσια μιας ομάδας ίσως να το έχετε ακούσει αν όχι διαβάστε το γιατί θα σας σώσει τη ζωή. Ας υποθέσουμε λοιπόν ότι αποτελείτε μέρος μιας ομάδας προγραμματιστών, σχεδιαστών και δουλεύετε σε διαφορετικά ή τα ίδια μέρη ενός έργου. Πώς συντονίζετε η δουλειά σας; Αν ακόμα στέλνετε τα αρχεία σας ο ένας στον άλλον καιρός να αλλάξετε συνήθειες! Καλώς ήρθατε στον κόσμο του Source Control! Ίσως οι εφαρμογές <a href="http://subversion.tigris.org/" target="_blank">SVN (Subversion)</a>, <a href="http://git-scm.com/">Git</a>, <a href="http://www.selenic.com/mercurial/wiki/">Mercurial</a> είναι πιο γνωστές; Αν όχι ήρθε η ώρα να τις εντάξετε στο λεξιλόγιο σας μαζί με τις πράξεις που τις ακολουθούν checkout, commit, pull, update, push.</p>
+
+<p>Πολύ πιθανόν να έχετε συναντήσει σε κάποια σουίτα γραφείου την έννοια της έκδοσης. Δηλαδή παλιότερων εκδόσεων, αντιγράφων κάποιου αρχείου σας. Ακριβώς αυτό κάνουν και τα εργαλεία που θα ασχοληθούμε. Κρατούν αντίγραφα των εκδόσεων του κώδικα του κάθε χρήστη αλλά και τα συντονίζουν μεταξύ τους.</p>
+
+<p>Ας αναφερθούμε σε ένα παράδειγμα για να γίνει αντιληπτή η έννοια. Ας πούμε ότι συμμετάσχετε σε ένα νέο project που ξεκίνησαν 2 άτομα. Το project αυτό το συγχρονίζουν μέσω <a href="http://subversion.tigris.org/" target="_blank">SVN (Subversion)</a>. Κάθεστε στον υπολογιστή σας και θέλετε να αποκτείσετε πρόσβαση στον κώδικα. Κάποιος θα σας δημιουργήσει ένα χρήστη που έχει πρόσβαση στο repository. Ενα repository μπορεί να θεωρηθεί η βάση δεδομένων που κρατάει τον πιο πρόσφατο αλλά και τις αλλαγές του project που συγχρονίζεται. Η βασική δομή ενός repository είναι η client-server. Δηλαδή εσείς που θα κάτσετε σε ένα PC να γράψετε είστε ο client . Κάποιο μηχάνημα που βρίσκεται το repository αποτελεί τον server.</p>
+
+<p>Αφού λοιπόν αποφασίσατε να "μπείτε" στο project για να αποκτήσετε το τελευταίο αντίγραφο του κώδικα θα κάνετε ένα checkout από το repository. Μπορείτε πλέον αφού γράψετε νέα αρχεία ή να διορθώσετε υπάρχοντα να ενημερώσετε το repository με τις αλλαγές κάνοντας ένα commit. Κάθε commit δημιουργεί μια νέα έκδοση (revision) του project. Από εδώ και πέρα μπορείτε να είστε πάντα ενημερωμένοι κάνοντας update (from head), να συνεχίσετε από μια έκδοση (revision) του project και να επιλύσετε τυχόν εμπλοκές (conflicts) που μπορούν να παρουσιαστούν αν έχετε επέμβει στο ίδιο κομμάτι κώδικα στο τελευταίο commit ταυτόχρονα με άλλον χρήστη.</p>
+
+<p>Υπάρχουν clients αλλά και servers για όλα τα λειτουργικά συστήματα. Υπάρχουν τόσο clients με γραμμή εντολών αλλά και γραφικά περιβάλλοντα.</p>
+
+<p>Πρώτα όμως θα πρέπει να διαλέξετε ποιο εργαλείο θα χρησιμοποιήσετε τα πιο διαδεδομένα είναι</p>
+
+<ul>
+    <li><a href="http://subversion.tigris.org/" target="_blank">SVN (Subversion)</a></li>
+    <li><a href="http://git-scm.com/">Git</a></li>
+    <li><a href="http://www.selenic.com/mercurial/wiki/">Mercurial</a></li>
+    <li><a href="http://www.nongnu.org/cvs/" target="_blank">SVC</a></li>
+</ul>
+
+<p>Αν χρησιμοποιήσετε το πιο διαδεδομένο, δηλαδή το SVN οι επιλογές για client είναι πολλές. Οι πιο γνωστές είναι</p>
+
+<ul>
+    <li><a href="http://tortoisesvn.tigris.org/" target="_blank">TortoiseSVN</a> (Windows)</li>
+    <li><a href="http://www.zennaware.com/">Cornerstore</a> (Mac)</li>
+    <li><a href="http://versionsapp.com/" target="_blank">Versions</a> (Mac)</li>
+</ul>
+
+<p>Στο επόμενο άρθρο θα μιλήσουμε για hosted repositories, social coding και συμμετοχή σε  open source έργα χάρη στα παραπάνω εργαλεία.</p>
+</div>
+	</article>
+	
+
+
+</section>
+
+		</section>
+
+
+
+	</div><!-- end wrapper -->
+	<div id="footer">
+		<p class="copy">
+			&copy;2006 - 2012  by <a href="http://lexx.gr">lexx</a> &amp; <a href="https://twitter.com/PanosJee">PanosJee</a>
+		</p>
+
+	</div>
+</div> <!-- end page -->
+
+</body>
+</html>
+

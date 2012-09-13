@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="el-GR">
+<head>
+<meta name="description" content="King of hardcore tech and twisted thoughts" />
+<meta name="keywords" content="Web development, Web design, Web news, Coding, PHP, Technology" />
+<meta name="author" content="Alexander Lingris" />
+<meta name="generator" content="Kudos.gr Engine" />
+<meta charset="UTF-8" />
+<title>Webz | Ξεχωριστό CSS για τον Internet Explorer 6</title>
+
+<link rel="stylesheet" type="text/css" href="assets/css/static.css" />
+<link href="assets/img/favicon.ico" rel="shortcut icon" type="image/ico" />
+
+</head>
+<body class="">
+<div id="header">
+	<hgroup>
+		<h1 id="logo"><a href="index.html"><img src="assets/img/logo.png" alt="logo"></a></h1>
+		<h2 id="site_desc">King of hardcore tech and twisted thoughts</h2>
+	</hgroup>
+
+</div>
+		<section id="notice">
+			<p>The King is dead! RIP 2006-2012</p>
+			<span>Ένα μεγάλο ευχαριστώ σε όλη την παρέα</span><br>
+			<span>Περισσότερα στο <a href="http://lexx.gr">lexx.gr</a></span>
+		</section>
+<div id="page">
+
+
+	<div id="wrapper">
+		<section id="main">
+			<h1>Ξεχωριστό CSS για τον Internet Explorer 6</h1>			<section id="main">
+	<article  class="post single">
+
+		<p class="meta">03 Oct 2007 by lexx</p>
+		<div class="content"><p>Την βδομάδα που πέρασε είχα αναλάβει ένα site για <a href="http://www.joomla.org/">joomla</a>. Φτιάχνοντας το CSS του theme αντιμετώπισα πάρα πολλά προβλήματα με τον ie 6. Όταν έφτιαχνα κάτι εκεί χάλαγε στον firefox. Όταν πλέον πήρα απόφαση ότι δεν υπάρχει περίπτωση να συντονίσω τον ie με τους άλλους φυσιολογικούς browser προχώρησα στη δημιουργία ενός ξεχωριστού CSS για αυτόν.</p>
+
+<p>Αυτή η τεχνική δεν είναι πολύ βολική εάν γίνονται συχνά αλλαγές στο site αλλά αν πρόκειται το theme να μείνει για καιρό θεωρώ πολύ πιο πρακτικό να γίνει ξεχωριστό CSS αρχείο για τον ie. Η μέθοδος για να γίνει αυτό είναι πολύ απλή. Μέσα στο &lt;head&gt; της σελίδας προσθέτουμε τα παρακάτω:</p>
+
+<p>Για όποιον browser έχει την τύχη να μην είναι ο ie 6</p>
+
+<pre>
+<code>&lt;!--[if !IE]&gt;
+&lt;link rel="stylesheet" type="text/css" href="style.css" /&gt;
+&lt;![endif]--&gt;</code>
+</pre>
+
+<p>Για τον ie6</p>
+
+<pre>
+<code>&lt;!--[if IE 6]&gt;
+&lt;link rel="stylesheet" type="text/css" href="style_ie6.css" /&gt;
+&lt;![endif]--&gt;</code>
+</pre>
+
+<p>Για τον ie6 και τις χαμηλότερες εκδόσεις</p>
+
+<pre>
+<code>&lt;!--[if lte IE 7]&gt;
+&lt;link rel="stylesheet" type="text/css" href="style_ie6_and_down.css" /&gt;
+&lt;![endif]--&gt;</code>
+</pre>
+</div>
+	</article>
+	
+
+
+</section>
+
+		</section>
+
+
+
+	</div><!-- end wrapper -->
+	<div id="footer">
+		<p class="copy">
+			&copy;2006 - 2012  by <a href="http://lexx.gr">lexx</a> &amp; <a href="https://twitter.com/PanosJee">PanosJee</a>
+		</p>
+
+	</div>
+</div> <!-- end page -->
+
+</body>
+</html>
+

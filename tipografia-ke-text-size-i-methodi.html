@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="el-GR">
+<head>
+<meta name="description" content="King of hardcore tech and twisted thoughts" />
+<meta name="keywords" content="Web development, Web design, Web news, Coding, PHP, Technology" />
+<meta name="author" content="Alexander Lingris" />
+<meta name="generator" content="Kudos.gr Engine" />
+<meta charset="UTF-8" />
+<title>Webz | Τυπογραφία και Text-Size - Οι Μέθοδοι</title>
+
+<link rel="stylesheet" type="text/css" href="assets/css/static.css" />
+<link href="assets/img/favicon.ico" rel="shortcut icon" type="image/ico" />
+
+</head>
+<body class="">
+<div id="header">
+	<hgroup>
+		<h1 id="logo"><a href="index.html"><img src="assets/img/logo.png" alt="logo"></a></h1>
+		<h2 id="site_desc">King of hardcore tech and twisted thoughts</h2>
+	</hgroup>
+
+</div>
+		<section id="notice">
+			<p>The King is dead! RIP 2006-2012</p>
+			<span>Ένα μεγάλο ευχαριστώ σε όλη την παρέα</span><br>
+			<span>Περισσότερα στο <a href="http://lexx.gr">lexx.gr</a></span>
+		</section>
+<div id="page">
+
+
+	<div id="wrapper">
+		<section id="main">
+			<h1>Τυπογραφία και Text-Size - Οι Μέθοδοι</h1>			<section id="main">
+	<article  class="post single">
+
+		<p class="meta">16 Nov 2007 by lexx</p>
+		<div class="content"><p>Με αφορμή ένα σχόλιο που έγινε σήμερα θέλω να μιλήσω λίγο για την τυπογραφία και πιο συγκεκριμένα για τον τρόπο με τον οποίο είναι καταλληλότερο να ορίζουμε το μέγεθος των font σε μια σελίδα.</p>
+
+<blockquote>Το font-size καλό είναι να ορίζεται σε em ή %.
+Το να ορίζεις font σε Px θεωρείται λαθος. (Κομμάτι από <a href="http://www.webz.gr/2007/11/14/lexx-css-content-boxes/#comment-25383">το σχόλιο του Χάρη</a>)</blockquote>
+
+<p><a href='http://www.webz.gruploads/2007/11/011005_fg2.jpg' title=''><img align="right" src='http://www.webz.gruploads/2007/11/011005_fg2.thumbnail.jpg' alt='' /></a></p>
+
+<p>Ο Χάρης αν διαβάσετε ολόκληρο το σχόλιο έχει ένα μεγάλο δίκιο. Λέει ότι με την χρήση του em ο χρήστης σε πολλούς browser - όπως o ie6 - έχει την δυνατότητα να αλλάζει το μέγεθος της γραμματοσειράς πράγμα που δεν μπορεί να κάνει με τα px. Για να δούμε όμως το όλο θέμα αναλυτικότερα.</p>
+
+<p>Αρχικά ποιες είναι μερικές δημοφιλείς επιλογές;</p>
+
+<p><strong>CSS relative sizes (Σχετικά Μεγέθη)</strong></p>
+
+<p><code>p { font-size: xx-large;} .small{ font-size: small;}</code></p>
+
+<p><strong>Υπέρ:</strong></p>
+
+<ul>
+    <li>Επιτρέπει την αλλαγή του μεγέθους του font από τα ‘Text Size’ settings του browser.</li>
+    <li>Όλα τα μεγέθη είναι σχετικά μεταξύ τους και έτσι αλλάζουν μέγεθος με μια αναλογία</li>
+</ul>
+
+<p><strong>Κατά:</strong></p>
+
+<ul>
+    <li>Τα relative size keywords μεταφράζονται διαφορετικά από κάθε browser. Μπορεί να είναι διαφορετικά στο IE6 των Windows και διαφορετικά σε έναν browser των Mac.</li>
+</ul>
+
+<p><strong>CSS pixel size</strong></p>
+
+<p><code>p { font-size: 14px;} .small{ font-size: 10px;}</code></p>
+
+<p><strong>Υπέρ:</strong></p>
+
+<ul>
+    <li>Συμβαδίζουν με το pixel matrix της οθόνης και μπορούν τα font να οριστούν σε συγκεκριμένο μέγεθος pixel πράγμα που πολλές φορές είναι επιθυμητό, πχ για να μην χαλάει το layout με την αύξηση του font-size από τον ie.</li>
+    <li>Τα px μεταφράζονται με τον ίδιο τρόπο στους περισσότερους browser</li>
+</ul>
+
+<p><strong>Κατά:</strong></p>
+
+<ul>
+    <li>Σε browser όπως ο ie 6 ο χρήστης δεν μπορεί να αλλάξει το μέγεθος των font  από τα ‘Text Size’ settings</li>
+<li>Σε πολλούς browser η μικρότερη τιμή που δέχονται είναι τα 9px</li>
+</ul>
+
+<p><strong>CSS point size</strong></p>
+
+<p><code>p { font-size: 12pt;} .small{ font-size: 8pt;}</code></p>
+
+<p><strong>Υπέρ:</strong></p>
+
+<ul>
+    <li>Τα pt χρησιμοποιούνται περισσότερο σε έντυπα μιας και θεωρείται πως είναι πιο ευανάγνωστα</li>
+</ul>
+
+<p><strong>Κατά:</strong></p>
+
+<ul>
+    <li>Σε browser όπως ο ie 6 ο χρήστης δεν μπορεί να αλλάξει το μέγεθος των font  από τα ‘Text Size’ settings όπως και στα pixels</li>
+<li>Δεν συμβαδίζουν με το pixel matrix της οθόνης και έτσι μπορούν να γίνουν δυσανάγνωστα σε αντίθεση με τα pixels </li>
+</ul>
+
+<p><strong>Η προτεινόμενη και επικρατέστερη μέθοδος</strong></p>
+
+<p>Η μέθοδος την οποία προτείνουν και θεωρείται ορθότερη είναι ο συνδυασμός ενός ποσοστού και τιμών em. Με αυτόν τον τρόπο επιτρέπεται από τους χρήστες να αλλάζουν text-size από τα settings του browser τους χωρίς να χάνει ο designer τον έλεγχο πάνω στο μέγεθος.</p>
+
+<p>To default μέγεθος του text-size στους browser είναι 16pt. Και το 1em αντιστοιχεί σε 16pt. Για να δουλέψουμε καλύτερα και ανακτήσουμε τον έλεγχο μέσω του ποσοστού ορίζουμε το default μέγεθος της σελίδα μας σε 10pt:</p>
+
+<p><code>body{font-size: 62.5%;} /* 10 / 16 = 0.625 */</code></p>
+
+<p>Τώρα λοιπόν ξέρουμε για παράδειγμα ότι 12pt = 1.2em και 8pt = 0.8em</p>
+
+<p>Οπότε πλέον στο css μας δουλεύουμε ως εξής:</p>
+
+<p><code>p { font-size: 1.2em;} .small{ font-size: 0.8em;}</code></p>
+
+<p>Ελπίζω να ξεκαθάρισα μερικά πράγματα για όσους δεν είχαν ακόμα αποφασίσει ποιος είναι πιο αποδοτικός τρόπος. Παρόλο που η μέθοδος ποσοστού και em θεωρείτε ο ορθότερος αυτό δεν σημαίνει ότι δεν υπάρχουν και άλλες μέθοδοι εξίσου αποτελεσματικές. Επίσης υπάρχουν ορισμένες εξαιρέσεις όπου προτείνεται η χρήση pixel αντί για em.</p>
+
+<div class="extlinks">
+<h4>Πηγές</h4>
+<a href="http://shapeshed.com/journal/controlling_font_size_using_css/">ShapeShed.com</a>: Controlling font size using CSS
+<a href="http://www.porcupine.gr/applying-good-typography-to-the-web-part-2/">Porcupine.gr</a>: Applying good typography to the Web (part 2)
+<a href="http://www.motive.co.nz/guides/typography/webfonts.php">Motive.co.nz</a>: Methods for setting HTML text size
+</div>
+</div>
+	</article>
+	
+
+
+</section>
+
+		</section>
+
+
+
+	</div><!-- end wrapper -->
+	<div id="footer">
+		<p class="copy">
+			&copy;2006 - 2012  by <a href="http://lexx.gr">lexx</a> &amp; <a href="https://twitter.com/PanosJee">PanosJee</a>
+		</p>
+
+	</div>
+</div> <!-- end page -->
+
+</body>
+</html>
+

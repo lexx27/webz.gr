@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="el-GR">
+<head>
+<meta name="description" content="King of hardcore tech and twisted thoughts" />
+<meta name="keywords" content="Web development, Web design, Web news, Coding, PHP, Technology" />
+<meta name="author" content="Alexander Lingris" />
+<meta name="generator" content="Kudos.gr Engine" />
+<meta charset="UTF-8" />
+<title>Webz | Dealemma.gr - Group buying aggregator</title>
+
+<link rel="stylesheet" type="text/css" href="assets/css/static.css" />
+<link href="assets/img/favicon.ico" rel="shortcut icon" type="image/ico" />
+
+</head>
+<body class="">
+<div id="header">
+	<hgroup>
+		<h1 id="logo"><a href="index.html"><img src="assets/img/logo.png" alt="logo"></a></h1>
+		<h2 id="site_desc">King of hardcore tech and twisted thoughts</h2>
+	</hgroup>
+
+</div>
+		<section id="notice">
+			<p>The King is dead! RIP 2006-2012</p>
+			<span>Ένα μεγάλο ευχαριστώ σε όλη την παρέα</span><br>
+			<span>Περισσότερα στο <a href="http://lexx.gr">lexx.gr</a></span>
+		</section>
+<div id="page">
+
+
+	<div id="wrapper">
+		<section id="main">
+			<h1>Dealemma.gr - Group buying aggregator</h1>			<section id="main">
+	<article  class="post single">
+
+		<p class="meta">15 Mar 2011 by lexx</p>
+		<div class="content"><p>Η ιστορία έχει ως εξής. Είχα δει όλο τον χαμό με τα group buying site που γίνεται στην Ελλάδα και είπα να κάνω έναν aggregator που θα  μαζεύει τις προσφορές από όλα αυτά τα site, το <a href="http://dealemma.gr/">Dealemma.gr</a>. Έψαξα για ανταγωνισμό και βρήκα τα πολύ όμορφα (μπράβο guys) tsibato.gr και soby.gr (Δεν σαν δίνω link, είναι ανταγωνιστές. Μακριά). Παρόλα αυτά είπα να κάνω κι εγώ την δική μου προσπάθεια. Περισσότερο για την φάση.</p>
+
+<p>Ξεκίνησα λοιπόν και ετοίμασα μια πρώτη έκδοση του Dealemma.gr. Επειδή ήμουν εντελώς άσχετος με την πραγματικότητα άρχισα να κάνω scraping με xpath τα deal sites καθώς δεν είχαν σε κάποιο εμφανές σημείο xml. Όντας αφελής όπως είπαμε έστειλα και ένα σωρό email ζητώντας για άδεια χρήσης των πληροφοριών του κάθε deal site. Πιο πολύ για το τυπικό της υπόθεσης. Κάποιοι απάντησαν οκ, άλλοι με έγραψαν και το WinWinDeals με γείωσε. Και αφού ζήτησα τον λόγο, με ξαναγείωσε. Και αφού τα πήρα στο κρανίο και έστειλα 3ο email, με έγραψε στα παλιά του τα παπά (παπούτσια στην παιδική διάλεκτο).</p>
+
+<p>Ευτυχώς μέσα στην όλη κατάσταση μίλησα με τον άνθρωπο πίσω από το <a href="http://www.deals365.gr/">Deals365</a> και μου εξήγησε ότι παίζουν xml σχεδόν για κάθε deal site και ότι υπάρχει μια ολόκληρη ιστορία με affiliated links από πίσω. Ένιωσα χαζός για μια στιγμή αλλά ευτυχώς ήταν νωρίς ακόμα για να μην κλαίω. Από την αρχή λοιπόν το κομμάτι καταχώρηση του Dealemma...  Προσέξτε διαφορά τώρα. Ο Deals365 μου εξήγησε πως δουλεύει το πράγμα ενώ δεν τον συνέφερε πρακτικά ενώ οι άλλοι με γειώσανε λες και τους ζήταγα δανεικά. Arrgh.</p>
+
+<p>Για να μην τα πολυλογώ η εφαρμογή έφτασε σε ένα σημείο που έχει σχεδόν όλα τα features που είχα φανταστεί. Δημιουργημένο με HTML5, jQuery - AJAX - Google Maps, PHP και REST Server για να δίνω authorized data στην πλατφόρμα. Στο design θέλει μεγάλη βελτίωση αλλά αυτό στο άμεσο μέλλον. Στο μόνο που έκανα πίσω ήταν Mailchimp integration γιατί βαριόμουνα να μπλέκω. Έγινε custom το newletter.</p>
+
+<h2>Τι είναι η πλατφόρμα (<a href="http://dealemma.gr/platform">Dealemma platform</a>);</h2>
+
+<p>Η πλατφόρμα είναι το εξής γαμάτο (Κάνω διαφήμιση τώρα). Σου δίνω ένα zip και ένα api key και έχεις έναν κλώνο του Dealemma.gr στον server σου :). Το οποίο πρακτικά σημαίνει ότι έχεις έναν aggregator με τον οποίο δεν θα ασχοληθείς ποτέ ξανά καθώς τα κάνει όλα αυτόματα (Ακόμα κάνω διαφήμιση). Μπορείς κάλλιστα να τον them-άρεις βέβαια (Θέλει κότσια αλλά μπορείς). Έχει και ένα admin για να μαναντζάρεις τους subscriber στο Newletter και κάποια άλλο options. Πέρα από την πλάκα είναι μια καταπληκτική λύση για κάποιο που θα ήθελε να έχει έναν aggregator. Αναλυτικά τα features <a href="http://dealemma.gr/platform">εδώ</a>.</p>
+
+<p>υ.γ. Το μόνο που δεν μπορείς να κάνεις είναι να συμπεριλάβεις το WinWinDeals χοχοχο.</p>
+
+<p><strong>Σημείωση: </strong>Επειδή πολλοί άνθρωποι δικαίως μπερδεύονται. Να ξεκαθαρίσω ότι το platfοrm είναι commercial προιόν. Οπότε no free sneak peek για την ώρα. Θα υπάρξει συνέχεια όμως :)</p>
+</div>
+	</article>
+	
+
+
+</section>
+
+		</section>
+
+
+
+	</div><!-- end wrapper -->
+	<div id="footer">
+		<p class="copy">
+			&copy;2006 - 2012  by <a href="http://lexx.gr">lexx</a> &amp; <a href="https://twitter.com/PanosJee">PanosJee</a>
+		</p>
+
+	</div>
+</div> <!-- end page -->
+
+</body>
+</html>
+

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="el-GR">
+<head>
+<meta name="description" content="King of hardcore tech and twisted thoughts" />
+<meta name="keywords" content="Web development, Web design, Web news, Coding, PHP, Technology" />
+<meta name="author" content="Alexander Lingris" />
+<meta name="generator" content="Kudos.gr Engine" />
+<meta charset="UTF-8" />
+<title>Webz | Απελευθερώστε το σύννεφο!</title>
+
+<link rel="stylesheet" type="text/css" href="assets/css/static.css" />
+<link href="assets/img/favicon.ico" rel="shortcut icon" type="image/ico" />
+
+</head>
+<body class="">
+<div id="header">
+	<hgroup>
+		<h1 id="logo"><a href="index.html"><img src="assets/img/logo.png" alt="logo"></a></h1>
+		<h2 id="site_desc">King of hardcore tech and twisted thoughts</h2>
+	</hgroup>
+
+</div>
+		<section id="notice">
+			<p>The King is dead! RIP 2006-2012</p>
+			<span>Ένα μεγάλο ευχαριστώ σε όλη την παρέα</span><br>
+			<span>Περισσότερα στο <a href="http://lexx.gr">lexx.gr</a></span>
+		</section>
+<div id="page">
+
+
+	<div id="wrapper">
+		<section id="main">
+			<h1>Απελευθερώστε το σύννεφο!</h1>			<section id="main">
+	<article  class="post single">
+
+		<p class="meta">01 Dec 2009 by PanosJee</p>
+		<div class="content"><p>Η ζωή με το Open Source κυλάει συναρπαστικά και ελεύθερα αλλά όλο και περισσότερο μερικά σημεία γίνονται πιο κλειστά και αυτό γιατί εξαρτόμαστε από web services τα οποία δεν ελέγχουμε. Μια μεγάλη ώθηση στις εφαρμογές έχει δοθεί και από το cloud computing. 'Άφθονοι, φθηνοί, παραμετροποιήσιμοι και a la carte υπολογιστικοί πόροι στη διάθεση μας για να απογειώσει τις εφαρμογές που τους χρειάζονται. Μια μικρή παρένθεση σε αυτό το σημείο: Δεν είναι όλα τα σύννεφα ίδια, τα χωρίζουμε σε 2 μεγάλες κατηγορίες τα managed environments όπως το <a href="http://appengine.google.com">Google App Engine</a> όπου το Google μας παρέχει ένα περιορισμένο σύνολο επιλογών σε ένα εντελώς ελεγχόμενο περιβάλλον και τις υπηρεσίες cloud computing που εμείς καλούμαστε να ξεκινήσουμε virtual instances όποτε και όπως ακριβώς θέλουμε. Και οι 2 επιλογές έχουν τα συν τους.</p>
+
+<p>Στην πρώτη περίπτωση απλά ανεβάζουμε τον κώδικα μας και τον ξεχνάμε (λέμε τώρα...). Στην δεύτερη έχουμε άπειρες επιλογές στησίματος. Ας πούμε ότι φτιάξαμε το ιδανικό setup με load balancers, app servers, database cluster, memcache server και Hadoop καθώς και scripts για autoscaling. Αλλά είδα μια νέα προσφορά από άλλο provider πολύ πιο συμφέρουσα ή θέλουμε να φτιάξουμε το δικό μας cloud από τα κονδύλια του ΕΣΠΑ :P Μπορεί μεν ο κώδικας της εφαρμογής να παίζει παντού αλλά τι γίνεται με το deploy και τα autoscaling scripts; Απλά τα ξαναγράφουμε γιατί σύννεφο με σύννεφο διαφέρει.</p>
+
+<p>Αυτό μέχρι πρότινος γιατί η <a href="http://www.redhat.com/">RedHat</a> βάλθηκε να ομογενοποιήσει σε ένα &nbsp;API τα cloud computing APIs. Πολύ απλά με μια Ruby βιβλιοθήκη μπορούμε να ξεκινήσουμε και να σταματήσουμε μηχανήματα είτε αυτά βρίσκονται στο Amazon, στη Rackspace είτε στο datacenter &nbsp;μας. Και αυτό μπορεί να γίνει απλά χρησιμοποιώντας τη βιβλιοθήκη αυτή είτε από το site της εν λόγω προσπάθειας που ακούει στο όνομα <a href="http://deltacloud.org">DeltaCloud</a>.</p>
+
+<p><a target="_blank" href="http://deltacloud.org/api.html"><img alt="Basic relationships" src="http://deltacloud.org/styles/basic-relationships.png" /></a></p>
+
+<p>Όπως φαίνεται τα περισσότερα σύννεφα μοιράζονται μερικές όμοιες ιδιότητες που είναι οι εξής:</p>
+
+<ul>
+    <li>id, το εσωτερικό id του instance</li>
+    <li>owner_id, ποιος κατέχει το instance</li>
+    <li>name, πάρα πολύ χρήσιμο, έλειπε από το EC2, δώστε ένα όνομα στο instance πχ memcache, queue, db, app</li>
+    <li>image, η εικόνα του λειτουργικού πχ Ubuntu 9.10, Solaris 10, HP-UX κλπ</li>
+    <li>flavor (architecture, memory, storage) το μέγεθος του instance, αρχιτεκτονική, πόροι</li>
+    <li>realm, που βρίσκεται το datacenter πχ. ανατολική ακτή, Ευρώπη, κλπ</li>
+    <li>state, το instance τρέχει είτε είναι σταματημένο είναι ξεκινάει</li>
+    <li>public | private address, εσωτερικές οι εξωτερικές διευθύνσεις</li>
+</ul>
+
+<p>Ακόμα το <a href="http://deltacloud.org">DeltaCloud</a> είναι σε early stage και λείπουν drivers και για άλλα σύννεφα παρόλ' αυτα είναι μια προσπάθεια που αξίζει και μακάρι σύντομα να μπορούν οι εφαρμογές να πετάνε από σύννεφο σε σύννεφο χωρίς να μεσολαβούν πολλές αστραπές και βροντές!</p>
+</div>
+	</article>
+	
+
+
+</section>
+
+		</section>
+
+
+
+	</div><!-- end wrapper -->
+	<div id="footer">
+		<p class="copy">
+			&copy;2006 - 2012  by <a href="http://lexx.gr">lexx</a> &amp; <a href="https://twitter.com/PanosJee">PanosJee</a>
+		</p>
+
+	</div>
+</div> <!-- end page -->
+
+</body>
+</html>
+

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="el-GR">
+<head>
+<meta name="description" content="King of hardcore tech and twisted thoughts" />
+<meta name="keywords" content="Web development, Web design, Web news, Coding, PHP, Technology" />
+<meta name="author" content="Alexander Lingris" />
+<meta name="generator" content="Kudos.gr Engine" />
+<meta charset="UTF-8" />
+<title>Webz | Google Wave Robots</title>
+
+<link rel="stylesheet" type="text/css" href="assets/css/static.css" />
+<link href="assets/img/favicon.ico" rel="shortcut icon" type="image/ico" />
+
+</head>
+<body class="">
+<div id="header">
+	<hgroup>
+		<h1 id="logo"><a href="index.html"><img src="assets/img/logo.png" alt="logo"></a></h1>
+		<h2 id="site_desc">King of hardcore tech and twisted thoughts</h2>
+	</hgroup>
+
+</div>
+		<section id="notice">
+			<p>The King is dead! RIP 2006-2012</p>
+			<span>Ένα μεγάλο ευχαριστώ σε όλη την παρέα</span><br>
+			<span>Περισσότερα στο <a href="http://lexx.gr">lexx.gr</a></span>
+		</section>
+<div id="page">
+
+
+	<div id="wrapper">
+		<section id="main">
+			<h1>Google Wave Robots</h1>			<section id="main">
+	<article  class="post single">
+
+		<p class="meta">16 Sep 2009 by PanosJee</p>
+		<div class="content"><p>Όπως σας είχαμε γράψει και <a href="http://www.webz.gr/?p=2356">παλιότερα </a>το Webz φέτος πήγε Silicon Valley και είναι το μοναδικό blog που σας φέρνει πληροφόρηση από τα &quot;μέσα&quot;. Σε μια σειρά άρθρων που θα ακολουθήσουν θα σας περιγράψουμε μερικές από τις πιο καυτές τεχνολογίες που πρόκειται να δούμε στο άμεσο μέλλον. Μια από τις πιο πολύ αναμενόμενες δεν είναι άλλη από το Google Wave.</p>
+
+<h3>Ride the Wave</h3>
+
+<p>Αν δεν ξέρετε τι είναι το Google Wave χονδρικά θα λέγαμε ότι είναι ένας συνδυασμός IM, Email, Wiki, Social Media και όλα αυτά Real Time. Το Google Wave όμως δεν είναι απλά μια νέα υπηρεσία του Google αλλά προδιαγραφή ενός πρωτοκόλλου, στην πραγματικότητα το Wave κάθεται πάνω από το πολύ γνωστό πρωτόκολλο XMMP. &nbsp;Η Google διαθέτει προς download μια εκδοχή του Wave Server συνεπώς καθένας μπορεί να τρέχει την δικιά του υπηρεσία η οποία θα μπορεί να μιλάει με άλλους Wave Providers και φυσικά θα αναπτυχθούν και πολλά νέοι clients.  Προς το παρόν η πρόσβαση στο Wave γίνεται μόνο εντός ενός sandbox και υποστηρίζει φυσικά μόνο μοντέρνους browsers αφού γίνεται εκτενής χρήση HTML5. Παίζοντας μαζί του δεν μείναμε κατάπληκτοι καθότι είναι buggy ακόμα αλλά και γιατί το UI δεν είναι τόσο εντυπωσιακό και λειτουργικό. Λογικό αν σκεφτούμε ότι το βάρος πέφτει προς το παρόν στο backend και τα specs.</p>
+
+<h3>GTUG</h3>
+
+<p>GTUG σημαίνει Google Technology User Group και αυτό το καλοκαίρι εγώ και άλλα 2 παιδιά ο Σάββας και ο Γιώργος είχαμε την τύχη να συμμετάσχουμε στο campout που διοργάνωσαν σχετικά με Wave Development. &nbsp;Αν και η ιδέα του &nbsp;υπογράφοντα έγινε δεκτή κερδίζοντας ένα συμβολικό βραβείο δε κατάφερε να την υλοποιήσει. Καλή καρδία :) <a href="http://www.flickr.com/photos/shirleylin/sets/72157621990228102/" target="_blank">Φωτογραφίες από το event</a></p>
+
+<h3>Wave Development</h3>
+
+<p>Συνοπτικά το development &nbsp;σχετικά με το Wave έχει 3 κατηγορίες</p>
+
+<ul>
+    <li>Robots, προγράμματα που συμμετέχουν στη συνομιλία και μπορούν να παρεμβαίνουν προσθέτοντας πληροφορία είτε διορθώνοντας είτε στέλνοντας τα blips (το δομικό στοιχείο ενός Wave) σε κάποια υπηρεσία</li>
+    <li>Gadgets, widgets σε Javascript που εκμεταλλεύονται τα real time χαρακτηριστικά. Ο Σάββας θα μας κάνει εκτενή παρουσίαση σε επόμενο ποστ</li>
+    <li>Embed, widgets που&nbsp;ενσωματώνουν&nbsp;waves σε οποιαδήποτε σελίδα</li>
+</ul>
+
+<h3>Robots</h3>
+
+<p>Όπως είπαμε τα robots είναι εικονικοί συμμετέχοντες σε μια ομιλία. Προς το παρόν είναι δυνατόν να αναπτύξουμε Robots μόνο πάνω στο App Engine.  Η όλη ιστορία είναι σχετικά απλή. Αφού δαμάσουμε το App Engine (αναλυτική περιγραφή σε επόμενα posts) θα πρέπει να δημιουργήσουμε listeners για μερικά από τα συνολικά 11 events που σχετίζονται με τη δημιουργία, ενημέρωση, διαγραφή blip και τη συμμετοχή, αποχώρηση συμμετεχόντων.</p>
+
+<p><a href="http://code.google.com/intl/el-GR/apis/wave/extensions/robots/index.html"><img width="472" height="191" class="size-full wp-image-2363" src="http://www.webz.gruploads/2009/09/wave_robot.png" alt="Wave Robot API (Java)" /></a></p>
+
+<p>Όπως βλέπουμε και στο διάγραμμα το robot μας θα συμμετάσχει στην ομιλία με το email του π.χ. myawesomerobot@appstot.com  Βέβαια χωρίς εικόνα είναι δύσκολα να σας πούμε τι ακριβώς θα κάνει οπότε σύντομα θα ανέβει και κάποιο βίντεο.  Αν ενδιαφέρεστε ρίξτε μια ματιά στην παρακάτω λίστα</p>
+
+<ul>
+    <li><a href="http://github.com/JackDanger/wave/" target="_blank">Robot Development with JRuby and Sinatra</a></li>
+    <li><a href="http://code.google.com/intl/el-GR/apis/wave/">Google Wave API</a></li>
+    <li><a href="http://wavesandbox.com/">Google Wave Sanbox</a></li>
+</ul>
+
+<p><strong>ΥΓ.</strong> Προσπαθήσαμε να ζητήσουμε από την Google Hellas χρηματοδότηση για ένα GTUG Ελλάδας αλλά η απάντηση ήταν αρνητική... Ελπίζουμε κάποια στιγμή να μπορέσουμε να διοργανώσουμε κάτι ανάλογο και στον ελληνικό χώρο</p>
+</div>
+	</article>
+	
+
+
+</section>
+
+		</section>
+
+
+
+	</div><!-- end wrapper -->
+	<div id="footer">
+		<p class="copy">
+			&copy;2006 - 2012  by <a href="http://lexx.gr">lexx</a> &amp; <a href="https://twitter.com/PanosJee">PanosJee</a>
+		</p>
+
+	</div>
+</div> <!-- end page -->
+
+</body>
+</html>
+

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="el-GR">
+<head>
+<meta name="description" content="King of hardcore tech and twisted thoughts" />
+<meta name="keywords" content="Web development, Web design, Web news, Coding, PHP, Technology" />
+<meta name="author" content="Alexander Lingris" />
+<meta name="generator" content="Kudos.gr Engine" />
+<meta charset="UTF-8" />
+<title>Webz | RubyEnRails 2009 (Μέρος πρώτο)</title>
+
+<link rel="stylesheet" type="text/css" href="assets/css/static.css" />
+<link href="assets/img/favicon.ico" rel="shortcut icon" type="image/ico" />
+
+</head>
+<body class="">
+<div id="header">
+	<hgroup>
+		<h1 id="logo"><a href="index.html"><img src="assets/img/logo.png" alt="logo"></a></h1>
+		<h2 id="site_desc">King of hardcore tech and twisted thoughts</h2>
+	</hgroup>
+
+</div>
+		<section id="notice">
+			<p>The King is dead! RIP 2006-2012</p>
+			<span>Ένα μεγάλο ευχαριστώ σε όλη την παρέα</span><br>
+			<span>Περισσότερα στο <a href="http://lexx.gr">lexx.gr</a></span>
+		</section>
+<div id="page">
+
+
+	<div id="wrapper">
+		<section id="main">
+			<h1>RubyEnRails 2009 (Μέρος πρώτο)</h1>			<section id="main">
+	<article  class="post single">
+
+		<p class="meta">09 Nov 2009 by PanosJee</p>
+		<div class="content"><p>Το διήμερο 29-30 Οκτωβρίου βρέθηκα στο Amsterdam για το συνέδριο <a href="http://2009.rubyenrails.nl/">RubyEnRails 2009</a>&nbsp;που έγινε στο Πανεπιστήμιο του Αμστερνταμ. Υπάρχουν πολλά συνέδρια γύρω από τη Ruby και το Rails με πιο γνωστό το RailsConf που το 2010 θα γίνει στη Βαλτιμόρη και στο Βερολίνο. Αυτό που μου έκανα αρχικά εντύπωση στο RubyEnRails ήταν η ιδιαίτερα χαμηλή τιμή (79 ευρώ) και το εντυπωσιακό panel με τους Yehuda Katz, Jeremy Kemper (νούμερο 1 και 2 στο rails αυτή τη στιγμή), &nbsp;Mike Dilorf (δημιουργός της MongoDB), Eloy Duran (Rails, MacRuby).</p>
+
+<p>Για μένα η συμμετοχή ήταν no brainer καθότι θα βρισκόμουν στην Ολλανδία ούτως ή άλλως.</p>
+
+<h2>Μέρα πρώτη</h2>
+
+<p>&nbsp;Θα αναφερθώ στις πιο ουσιαστικές - για μένα - παρουσιάσεις που δεν ήταν άλλες από αυτές των προαναφερθέντων καθώς και του Jonathan Weiss σχετικά με την ασφάλεια Rails εφαρμογών</p>
+
+<h3>Yehuda Katz - Merging Merb goodness into Rails</h3>
+
+<p>Ο Yehuda ήταν ο βασικός δημιουργός του fork του Rails, το γνωστό <a href="http://merbivore.com/">Merb</a>. Πέρυσι το Δεκέμβρη ανακοινώθηκε ότι Merb και Rails θα συγχωνευτούν. Πολλοί δε το πίστευαν και άλλοι θεωρούσαν αδύνατο Yehuda και DHH να τα βρούνε. Παρόλαυτα το project προχώρησε και έχει γίνει πραγματικότητα! Το Rails 3 θα είναι ένα εντυπωσιακό framework και σίγουρα πολλοί θα το ανακαλύψουν και οι παλιότεροι θα κάνουν πάρτυ!</p>
+
+<p>Γιατί όμως; Ο Yehuda επιγραμματικά μας παρουσίασε τις εξής μεγάλες αλλαγές:</p>
+
+<ul>
+    <li>Ο κώδικας πλέον ξετυλίγεται :) Πολλοί κατηγόρησαν το Rails ότι είναι spaghetti code λόγω των πολλών meta programming &nbsp;patches σε πολλά σημεία του κώδικα ενώ τα modules ήταν μπλεγμένα μεταξύ τους. Αυτό πλέον δεν ισχύει και ο κώδικας πλέον είναι ξεκάθαρος και δομημένος</li>
+    <li>Χάρη στη ξεκάθαρη αρχιτεκτονική θα είναι πολύ εύκολο να κρατάς μόνο τα κομμάτια που θες. Για τους γνώστες το Rails Metal δε θα χρειάζεται πλέον αφού μπορεί να αφαιρέσετε όλο το περιττό βάρος. Αντίστοιχα μπορεί ο προγραμματιστής να επιλέξει να αντικαταστήσει κάτι που δε του αρέσει</li>
+    <li>Συνέπεια αυτών: ΤΑΧΥΤΗΤΑ. Σε μερικές περιπτώσεις μπορεί να φτάσει και μια τάξη μεγέθους αλλά αυτό είναι πολύ ειδικό. Οπως και να έχει σίγουρα για όλες τις εφαρμογές που θα γίνουν σωστά port &nbsp;θα υπάρξει αύξηση στην ταχύτητα και ακόμα μεγαλύτερη με τη χρήση Ruby 1.9&nbsp;</li>
+    <li>Το Rails 3 θα είναι agnostic όσο αφορά το ORM και τις javascript βιβλιοθήκες. Το DataMapper και το jQuey αλλά και κάθε άλλη επιλογή σας θα είναι πρωτοκλασσάτες επιλογές για την εφαρμογή σας</li>
+    <li>Οι εξαρτήσεις των &nbsp;gems απλοποιούνται κατά πολύ χάρη στο bundler του Merb (μπορείτε να το χρησιμοποιήσετε από <a href="http://yehudakatz.com/2009/11/03/using-the-new-gem-bundler-today/">τώρα</a>)&nbsp;</li>
+    <li>Μεγαλύτερη εξάρτηση από το <a href="http://rack.rubyforge.org/">Rack</a></li>
+    <li>To routing &nbsp;πλέον παίρνει τη μορφή μιας <a href="http://en.wikipedia.org/wiki/Domain_Specific_Language">DSL</a> Rack εφαρμογής</li>
+</ul>
+
+<p><em>Στο αυτό το σημείο θέλω να πω ότι ο Yehuda είναι από τους βασικούς commiters και στο jQuery. Οταν συναντάς τέτοιους ανθρώπους που καθορίζουν την τεχνολογία σε παγκόσμιο επίπεδο αλλά και αυτούς που φτιάχνουν τα εργαλεία από τα οποία βγάζουμε ψωμί είναι μια ξεχωριστή εμπειρία.</em></p>
+
+<h3>Jonathan Weiss - Rails Security</h3>
+
+<p>Δε θα γράψω πολλά για αυτήν την παρουσίαση γιατί μπόρεσα και έκανα <a href="http://www.webz.gr/2009/10/rubyenrails-short-updates-1">μερικά</a> <a href="http://www.webz.gr/2009/10/rubyenrails-short-updates-2">twits</a> <a href="http://www.webz.gr/2009/10/rubyenrails-short-updates-3">με</a> <a href="http://www.webz.gr/2009/10/rubyenrails-short-updates-4">security</a> <a href="http://www.webz.gr/2009/10/rubyenrails-short-updates-5">tips</a> από το MacBook των παιδιών του Skroutz.gr και τους ευχαριστώ πολύ για αυτό. Να σημειώσω ότι πολλά από τα tips βρίσκουν εφαρμογή πέρα από το Rails καθότι πρόκειται για εγγενή αδυναμίες στο web όπως <a href="http://en.wikipedia.org/wiki/SQL_injection">SQL Injection</a>, <a href="http://en.wikipedia.org/wiki/Cross-site_scripting">XSS</a>, <a href="http://en.wikipedia.org/wiki/Cross-site_request_forgery">XCRF</a>.</p>
+
+<h3>Eloy Duran - MacRuby &amp; RubyCocoa</h3>
+
+<p>O Eloy μας μίλησε για τη <a href="http://www.macruby.org/">MacRuby</a>. Μια προσπάθεια που έχει αγκαλιάσει η Apple για μια καλύτερη Ruby στο περιβάλλον του Mac OS X αλλά όχι για να τρέχουμε Rails πιο γρήγορα αλλά για τη δημιουργία native Mac OS X εφαρμογών. Μας έκανε ένα μικρό demo αλλά τόνισε ότι ακόμα βρίσκεται σε έντονη ανάπτυξη και είναι αρκετά buggy. Στόχος της Apple είναι να μεταφέρει τη MacRuby και στο iPhone με στόχο να φέρει πιο πολλούς developers στη πλατφόρμα της και φυσικά να αγκαλιάσει τις agile μεθόδους των Ruby devs με αποτέλεσμα να δίνουν περισσότερες και γρηγορότερα νέες εφαρμογές χάρη και στο πλούσιο οικοσύστημα της Ruby.</p>
+
+<h3>Jeremy Kemper - What 's hot in Rails 3</h3>
+
+<p>Ισως η πιο εμπνευσμένη ομιλία. Ο Jeremy παρουσίασε και την ιστορία της Ruby και του Rails και όπως ο ναρκισισμός και η υπεροψία των πρώτων Rails developers είχε διχάσει τη κοινότητα της Ruby. Ο Jeremy δουλεύει στη 37signals και είναι το νούμερο 2 αυτή τη στιγμή στα commits στο Rails core. Οπως και ο Yehuda παρουσίασε αρκετά νέα χαρακτηριστικά στο Rails 3 και είπε ότι θα ήθελε να κυκλοφορήσει μαζί με τη Ruby 2 στην περίοδο των γιορτών. Βέβαια η προσαρμογή σε Ruby 2 (1.9 stable) και Rails 3 θα είναι μακριά και επίπονη.</p>
+
+<p>Αυτά για την πρώτη μέρα, θα ακολουθήσει και το δεύτερο μέρος με την παρουσίαση της MongoDB, συναντήσεις με μέλη της κοινότητας και συμπεράσματα από το πρώτο μου πανευρωπαικό meetup και συγκρίσεις με την Silicon Valley από ανάλογες συναντήσεις.</p>
+
+<p>&nbsp;</p>
+</div>
+	</article>
+	
+
+
+</section>
+
+		</section>
+
+
+
+	</div><!-- end wrapper -->
+	<div id="footer">
+		<p class="copy">
+			&copy;2006 - 2012  by <a href="http://lexx.gr">lexx</a> &amp; <a href="https://twitter.com/PanosJee">PanosJee</a>
+		</p>
+
+	</div>
+</div> <!-- end page -->
+
+</body>
+</html>
+

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="el-GR">
+<head>
+<meta name="description" content="King of hardcore tech and twisted thoughts" />
+<meta name="keywords" content="Web development, Web design, Web news, Coding, PHP, Technology" />
+<meta name="author" content="Alexander Lingris" />
+<meta name="generator" content="Kudos.gr Engine" />
+<meta charset="UTF-8" />
+<title>Webz | Facebook Development: Μέρος 1ο</title>
+
+<link rel="stylesheet" type="text/css" href="assets/css/static.css" />
+<link href="assets/img/favicon.ico" rel="shortcut icon" type="image/ico" />
+
+</head>
+<body class="">
+<div id="header">
+	<hgroup>
+		<h1 id="logo"><a href="index.html"><img src="assets/img/logo.png" alt="logo"></a></h1>
+		<h2 id="site_desc">King of hardcore tech and twisted thoughts</h2>
+	</hgroup>
+
+</div>
+		<section id="notice">
+			<p>The King is dead! RIP 2006-2012</p>
+			<span>Ένα μεγάλο ευχαριστώ σε όλη την παρέα</span><br>
+			<span>Περισσότερα στο <a href="http://lexx.gr">lexx.gr</a></span>
+		</section>
+<div id="page">
+
+
+	<div id="wrapper">
+		<section id="main">
+			<h1>Facebook Development: Μέρος 1ο</h1>			<section id="main">
+	<article  class="post single">
+
+		<p class="meta">02 Oct 2008 by PanosJee</p>
+		<div class="content"><p><a href="http://wiki.developers.facebook.com/index.php/Main_Page"><img class="alignright size-thumbnail wp-image-1325" src="http://www.webz.gruploads/2008/09/bn_facebook-logo-100x100.jpg" alt="" width="100" height="100" /></a></p>
+
+<p>Γεια σας και πάλι. Επανέρχομαι στην ανάπτυξη εφαρμοφών Facebook και σκοπεύω να ποστάρω όποτε βρίσκω κάτι αξιόλογο σχετικά με το θέμα και για αυτό θα χρησιμοποιώ αυτόν τον τίτλο με διαφορετικά μέρη.</p>
+
+<p>Καθότι είμαστε στο πρώτο μέρος τι πιο σωστό να πάρουμε τα πράγματα από την αρχή. Καταρχήν θα ήθελα να αναφέρω ότι αναφέρομαι σε ανάπτυξη με <a href="http://www.webz.gr/index.php?s=ruby+on+rails" target="_blank">Ruby On Rails</a> και την βιβλιοθήκη <a href="http://facebooker.rubyforge.org/" target="_blank">Facebooker</a>. Η συγκεκριμένη βιβλιοθήκη μας προσφέρει μια υλοποιήση του Facebook session αρκετά κοντά στον κλασσικό Ruby κώδικα οπότε και την προτιμούμε, βέβαια ο κώδικας της βιβλιοθήκης αν θέλετε να τον πειράξατε είναι πιο περίπλοκος αφού πρόκεται για ένα <a href="http://chadfowler.com/2007/9/5/writing-apis-to-wrap-apis" target="_blank">ΑΡΙ πάνω από ένα ΑΡΙ</a>.</p>
+
+<p>Ως εδώ τίποτα το πρωτόγνωρο. Για να πάμε παρακάτω, όπως είπαμε στο προηγούμενο <a href="http://www.webz.gr/2008/09/17/h-%CF%80%CE%BB%CE%B1%CF%84%CF%86%CF%8C%CF%81%CE%BC%CE%B1-%CF%84%CE%BF%CF%85-facebook/" target="_blank">ποστ</a> μια εφαρμογή Facebook καλεί τον κώδικα μας από τον server στον οποίο εκτελείται, αρά πώς θα κάνουμε local development, με ότι αυτό συνεπάγεται για την ευκολία του κώδικα; H πάμε remote με ότι αυτό συνεπάγεται δηλαδή FTP ή να γράφουμε πάνω από SSH ή αν έχουμε static IP address να δηλώσουμε αυτήν στο Facebook. Αν δεν έχουμε τι κάνουμε; DynDNS; Το βρίσκω μπελά.</p>
+
+<p>Μην απογοητεύστε και μην απελπίζεστε ο Facebooker κάνει το θαύμα του χάρη στα <a href="http://en.wikipedia.org/wiki/Tunneling_protocol" target="_blank">tunnels</a>. Ενα tunnel είναι όπως φαντάζεστε ένα τούνελ από ένα μηχάνημα σε ένα άλλο. Δηλαδή μια τυχαία διεύθυνση <a class="linkification-ext" title="Linkification: http://www.someurl.com" href="http://www.someurl.com">www.someurl.com</a>:7890 μπορεί να προωθήσει την κίνηση που δέχεται στο port 7890 στο τοπικό μας μηχάνημα και συγκεκριμένα π.χ. στο 127.0.0.1:3000 και στη συνέχεια τα αποτελέσματα να γυρίσουν από το αρχικό URL. Ο Facebooker μέσω του αρχείου ρυθμίσεων του απλά θα χρειαστεί το url του tunnel και το username. Και μετά απλά στην κονσόλα δίνοντας
+<strong>rake facebooker:tunnel:start</strong>
+η εφαρμογή μας στο Facebook εκτελείται στο μηχάνημα μας!</p>
+
+<p>Μα που θα βρω tunnel; Φυσικά μπορείτε να φτιάξετε το δικό σας ή απλά φτιάχτε ένα account στο <a href="http://www.tunnlr.com/" target="_blank">Tunnlr</a>, μάλιστα για κάθε account που φτιάχνετε σας λέει πώς να συμπληρώσετε τον αρχείο ρύθμισεις του Facebooker. Να και το δικό μου tunnel:</p>
+
+<p>How do I use Tunnlr with Facebooker (+)(-)</p>
+
+<p>Are you using Facebooker to build your Facebook application? If so, your facebooker.yml file should look like:</p>
+
+<p>development:
+api_key:
+secret_key:
+canvas_page_name:
+callback_url: <a class="linkification-ext" title="Linkification: http://web1.tunnlr.com:10247" href="http://web1.tunnlr.com:10247">http://web1.tunnlr.com:10247</a></p>
+
+<p>tunnel:
+public_host_username: tunnlr57
+public_host: ssh1.tunnlr.com
+public_port: 10247
+local_port: 3000</p>
+
+<p>After editing your facebooker.yml file, create a tunnel with</p>
+
+<p>rake facebooker:tunnel:background_start</p>
+
+<p>Οπου βέβαια callback_url το URL που δίνουμε όταν δημιουργούμε το νέο Facebook app. Αλλά περισσότερα για αυτό στο επόμενο μέρος του Facebook Development.</p>
+</div>
+	</article>
+	
+
+
+</section>
+
+		</section>
+
+
+
+	</div><!-- end wrapper -->
+	<div id="footer">
+		<p class="copy">
+			&copy;2006 - 2012  by <a href="http://lexx.gr">lexx</a> &amp; <a href="https://twitter.com/PanosJee">PanosJee</a>
+		</p>
+
+	</div>
+</div> <!-- end page -->
+
+</body>
+</html>
+
